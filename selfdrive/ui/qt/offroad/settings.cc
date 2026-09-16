@@ -1098,7 +1098,13 @@ void CValueControl::refresh() {
   QString val = QString::fromStdString(Params().get(m_params.toStdString()));
   if (!m_map.isEmpty()) {
     // 中文模式名显示; map 下标从 m_min 起(支持 -1/1 起始的枚举); 越界兜底显示原始值
-    int v = val.toInt();
+    bool ok = false;
+    int v = val.trimmed().toInt(&ok);
+    if (val.trimmed().isEmpty() || !ok) {
+      // 空值/非数字 → 显示第一个选项(通常即"默认/关闭")
+      label.setText(m_map.first());
+      return;
+    }
     if (v >= m_min && (v - m_min) < m_map.size()) {
       label.setText(m_map.at(v - m_min));
       return;
