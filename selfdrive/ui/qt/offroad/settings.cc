@@ -624,6 +624,13 @@ static QStringList get_list(const char* path) {
   return stringList;
 }
 
+// 分组小标题行(ListWidget 里做视觉分区)
+static QLabel* makeSectionHeader(const QString& text, QWidget* parent = nullptr) {
+  QLabel* hdr = new QLabel("── " + text + " ──", parent);
+  hdr->setStyleSheet("color: #8a8a8a; font-size: 26px; font-weight: 600; padding: 16px 0 4px 0;");
+  return hdr;
+}
+
 CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   main_layout = new QStackedLayout(this);
   homeScreen = new QWidget(this);
@@ -706,19 +713,23 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   QVBoxLayout* toggles_layout = new QVBoxLayout(toggles);
 
   cruiseToggles = new ListWidget(this);
+  cruiseToggles->addItem(makeSectionHeader("按钮"));
   cruiseToggles->addItem(new CValueControl("CruiseButtonMode", "按钮：定速巡航模式", "0:普通(直接设值),1:用户1(平滑调整),2:用户2(平滑+自动跟随限速)", 0, 2, 1, {"普通", "平滑调整", "限速联动"}));
   cruiseToggles->addItem(new CValueControl("CancelButtonMode", "按钮：取消模式", "0:长按,1:长按+车道保持", 0, 1, 1, {"长按", "长按+车道保持"}));
   cruiseToggles->addItem(new CValueControl("LfaButtonMode", "按钮：LFA模式", "0:普通,1:减速&停车&前车准备", 0, 1, 1, {"普通", "减速停车+前车准备"}));
   cruiseToggles->addItem(new CValueControl("CruiseSpeedUnitBasic", "按钮：定速单位(基础)", "1:公里/小时, 2:英里/小时", 1, 20, 1));
   cruiseToggles->addItem(new CValueControl("CruiseSpeedUnit", "按钮：定速单位(高级)", "1:公里/小时, 2:英里/小时", 1, 20, 1));
+  cruiseToggles->addItem(makeSectionHeader("定速"));
   cruiseToggles->addItem(new CValueControl("CruiseEcoControl", "定速：节能控制(4km/h)", "临时提高设定速度以提高燃油效率", 0, 10, 1));
   cruiseToggles->addItem(new CValueControl("AutoSpeedUptoRoadSpeedLimit", "定速：自动提速至道路限速(0%)", "巡航设定速度自动提升到道路限制的百分比x%，设定速度=道路限速*x%", 0, 200, 10));
+  cruiseToggles->addItem(makeSectionHeader("跟车距离"));
   cruiseToggles->addItem(new CValueControl("TFollowGap1", "跟车时间GAP1(110)x0.01s", "", 70, 300, 5));
   cruiseToggles->addItem(new CValueControl("TFollowGap2", "跟车时间GAP2(120)x0.01s", "", 70, 300, 5));
   cruiseToggles->addItem(new CValueControl("TFollowGap3", "跟车时间GAP3(160)x0.01s", "", 70, 300, 5));
   cruiseToggles->addItem(new CValueControl("TFollowGap4", "跟车时间GAP4(180)x0.01s", "", 70, 300, 5));
   cruiseToggles->addItem(new CValueControl("DynamicTFollow", "动态跟车GAP控制", "", 0, 100, 5));
   cruiseToggles->addItem(new CValueControl("DynamicTFollowLC", "动态跟车GAP控制(变道)", "", 0, 100, 5));
+  cruiseToggles->addItem(makeSectionHeader("驾驶模式"));
   cruiseToggles->addItem(new CValueControl("MyDrivingMode", "驾驶模式选择", "1:经济,2:安全,3:普通,4:激进", 1, 4, 1, {"经济", "安全", "普通", "激进"}));
   cruiseToggles->addItem(new CValueControl("MyDrivingModeAuto", "驾驶模式自动", "0:关闭,1:开启(仅普通模式)", 0, 1, 1, {"关", "开"}));
   cruiseToggles->addItem(new CValueControl("TrafficLightDetectMode", "红绿灯检测模式", "0:无,1:仅停止,2:停走模式", 0, 2, 1, {"无", "仅停止", "停走"}));
@@ -733,6 +744,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   //cruiseToggles->addItem(new CValueControl("MyHighModeFactor", "DRIVEMODE: HIGH ratio(100%)", "AccelRatio control ratio", 100, 300, 10));
 
   latLongToggles = new ListWidget(this);
+  latLongToggles->addItem(makeSectionHeader("车道与变道"));
   latLongToggles->addItem(new CValueControl("UseLaneLineSpeed", "车道线模式速度(0)", "车道线模式，使用 lat_mpc 控制", 0, 200, 5));
   latLongToggles->addItem(new CValueControl("UseLaneLineCurveSpeed", "车道线模式弯道速度(0)", "车道线模式，仅在高速时生效", 0, 200, 5));
   latLongToggles->addItem(new CValueControl("AdjustLaneOffset", "车道偏移调整(0)cm", "", 0, 500, 5));
@@ -741,6 +753,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   latLongToggles->addItem(new CValueControl("AutoLaneChangeMinSpeed", "打灯变道最低速度(-1)", "低于这个速度打灯不自动变道,设置为-1使用代码默认的30kph", -1, 100, 5));
   latLongToggles->addItem(new CValueControl("LaneChangeDelay", "变道延迟", "单位 x0.1秒", 0, 100, 5));
   latLongToggles->addItem(new CValueControl("LaneChangeBsd", "变道盲区BSD设置", "-1:忽略BSD, 0:检测BSD(轻推方向盘可变道), 1:轻推方向盘不变道", -1, 1, 1, {"忽略BSD", "检测BSD", "轻推不变道"}));
+  latLongToggles->addItem(makeSectionHeader("横向转向"));
   latLongToggles->addItem(new CValueControl("CustomSteerOffset", "横向: 自定义方向盘偏移(0)", "CustomSteerOffset自定义方向盘偏移,1表示开，0表示关", 0, 1, 1, {"关", "开"}));
   latLongToggles->addItem(new CValueControl("SteerAngleOffset", "横向: 方向盘偏移角度x0.1(0)", "SteerAngleOffset自定义方向盘偏移量,单位为0.1度", -100, 100, 1));
   latLongToggles->addItem(new CValueControl("CustomSR", "横向: 方向盘车轮转向比x0.1(165)", "CustomSR自定义转向比,设置为0表示使用自学习的值. 胜达建议设置165x0.1", 0, 300, 1));
@@ -762,9 +775,11 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   latLongToggles->addItem(new CValueControl("LateralTorqueFriction", "横向: 扭矩摩擦补偿(120)", "LateralTorqueFriction", 0, 1000, 10));
   latLongToggles->addItem(new CValueControl("NNFF", "NNFF", "Twilsonco的NNFF(需重启)", 0, 1, 1, {"关", "开"}));
   latLongToggles->addItem(new CValueControl("NNFFLite", "NNFF精简版", "Twilsonco的NNFF-Lite(需重启)", 0, 1, 1, {"关", "开"}));
+  latLongToggles->addItem(makeSectionHeader("转向力限制"));
   latLongToggles->addItem(new CValueControl("CustomSteerMax", "横向: 自定义最大转向力(0)", "CustomSteerMax", 0, 30000, 5));
   latLongToggles->addItem(new CValueControl("CustomSteerDeltaUp", "横向: 转向增量上升(0)", "CustomSteerDeltaUp", 0, 50, 1));
   latLongToggles->addItem(new CValueControl("CustomSteerDeltaDown", "横向: 转向增量下降(0)", "CustomSteerDeltaDown", 0, 50, 1));
+  latLongToggles->addItem(makeSectionHeader("纵向控制"));
   latLongToggles->addItem(new CValueControl("LongTuningKpV", "纵向: P增益(100)", "LongTuningKpV", 0, 150, 5));
   latLongToggles->addItem(new CValueControl("LongTuningKiV", "纵向: I增益(0)", "LongTuningKiV", 0, 2000, 5));
   latLongToggles->addItem(new CValueControl("LongTuningKf", "纵向: FF增益(100)", "LongTuningKf", 0, 200, 5));
@@ -784,6 +799,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   latLongToggles->addItem(new CValueControl("StartAccel", "纵向:起步加速度x0.01(50)", "StartAccel,单位0.01m/s^2,0表示使用各车型的默认值", 0, 200, 5));
   latLongToggles->addItem(new CValueControl("JLeadFactor3", "纵向: 加加速度前车因子(0)", "x0.01", 0, 100, 5));
   latLongToggles->addItem(new CValueControl("GasSmoothTime", "纵向: 释放油门踏板后平滑加速度的时间(50)x0.1s", "在用户释放油门踏板后，对最大的加速度限制进行平滑", 0, 100, 5));
+  latLongToggles->addItem(makeSectionHeader("加速曲线"));
   latLongToggles->addItem(new CValueControl("CruiseMaxVals0", "加速:0km/h(90)", "指定速度下所需加速度(x0.01m/s^2)", 1, 250, 5));
   latLongToggles->addItem(new CValueControl("CruiseMaxVals1", "加速:10km/h(180)", "指定速度下所需加速度(x0.01m/s^2)", 1, 250, 5));
   latLongToggles->addItem(new CValueControl("CruiseMaxVals2", "加速:40km/h(140)", "指定速度下所需加速度(x0.01m/s^2)", 1, 250, 5));
@@ -802,8 +818,11 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   //latLongToggles->addItem(new CValueControl("CruiseMinVals", "DECEL:(120)", "Sets the deceleration rate.(x0.01m/s^2)", 50, 250, 5));
 
   dispToggles = new ListWidget(this);
+  dispToggles->addItem(makeSectionHeader("调试"));
   dispToggles->addItem(new CValueControl("ShowDebugLog", "调试日志", "值的每个位代表一种日志,1-导航信息,2-变道请求,4-变道状态机,8-变道状态信息,如果要多个调试信息则相加", 0, 255, 1));
   dispToggles->addItem(new CValueControl("ShowDebugUI", "调试信息", "0:关,1:设备信息,2:详细调试文本", 0, 2, 1, {"关", "开", "详细"}));
+  dispToggles->addItem(new CValueControl("ShowPlotMode", "调试图表", "", 0, 10, 1));
+  dispToggles->addItem(makeSectionHeader("车载信息"));
   dispToggles->addItem(new CValueControl("ShowTpms", "胎压信息", "0:无,1:右上角,2:底部,3:两处都显示", 0, 3, 1, {"关", "右上", "底部", "两者"}));
   dispToggles->addItem(new CValueControl("ShowDateTime", "时间信息", "0:无,1:时间/日期,2:仅时间,3:仅日期", 0, 3, 1, {"关", "时间/日期", "仅时间", "仅日期"}));
   dispToggles->addItem(new CValueControl("ShowPathEnd", "轨迹终点", "0:无,1:显示", 0, 1, 1, {"关", "开"}));
@@ -811,7 +830,6 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   dispToggles->addItem(new CValueControl("ShowLaneInfo", "车道信息", "-1:无,0:轨迹,1:轨迹+车道线,2:轨迹+车道线+路沿", -1, 2, 1, {"无", "轨迹", "轨迹+车道线", "轨迹+车道线+路沿"}));
   dispToggles->addItem(new CValueControl("ShowRadarInfo", "雷达信息", "0:无,1:显示,2:相对位置,3:静止车辆", 0, 3, 1, {"关", "显示", "相对位置", "静止车辆"}));
   dispToggles->addItem(new CValueControl("ShowRouteInfo", "路线信息", "0:无,1:显示", 0, 1, 1, {"关", "开"}));
-  dispToggles->addItem(new CValueControl("ShowPlotMode", "调试图表", "", 0, 10, 1));
   dispToggles->addItem(new CValueControl("ShowCustomBrightness", "亮度比例", "", 0, 100, 10));
 
   //dispToggles->addItem(new CValueControl("ShowHudMode", "Display Mode", "0:Frog,1:APilot,2:Bottom,3:Top,4:Left,5:Left-Bottom", 0, 5, 1));
@@ -892,8 +910,10 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   });
 
 
+  startToggles->addItem(makeSectionHeader("车辆与模型"));
   startToggles->addItem(selectCarBtn);
   startToggles->addItem(new CValueControl("modelid", "模型选择", "-1:默认模型,0:TR16,1:DTR,2:Firehose,3:GWM,4:PP,5:DS,6:DSv2,7:WMI,8:CD210,重启后生效!", -1, 8, 1, {"默认模型", "TR16", "DTR", "Firehose", "GWM", "PP", "DS", "DSv2", "WMI", "CD210"}));
+  startToggles->addItem(makeSectionHeader("自动巡航"));
   startToggles->addItem(new CValueControl("HyundaiCameraSCC", "现代: 摄像头SCC(0)", "1:连接SCC的CAN线到摄像头, 2:同步定速状态, 3:原厂长控，不是用摄像头实现SCC的均设置为0", -1, 100, 1));
   startToggles->addItem(new CValueControl("CanfdHDA2", "CANFD: HDA2 模式", "1:HDA2, 2:HDA2+盲点监测, 一般非CanFD车型设置为0", 0, 2, 1, {"关", "HDA2", "HDA2+盲点"}));
   startToggles->addItem(new CValueControl("EnableRadarTracks", "启用雷达追踪(1)", "1:启用雷达追踪, -1,2:禁用 (始终使用HKG SCC雷达)，胜达设置为1, 改变值后需要重启车辆", -1, 3, 1));
@@ -903,13 +923,16 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   startToggles->addItem(new CValueControl("AutoEngage", "车辆启动时自动开启的功能", "0:不自动开启,1:车道保持启用,2:车道保持+定速启用", 0, 2, 1, {"关", "车道保持", "车道保持+定速"}));
   startToggles->addItem(new CValueControl("AutoGasTokSpeed", "轻踩油门开启巡航的速度", "当车速大于此速度时，轻点油门巡航速度加10，也可自动开启巡航,前提是'自动巡航控制'必须要打开", 0, 200, 5));
   startToggles->addItem(new CValueControl("SpeedFromPCM", "从PCM读取定速速度(2)", "丰田必须设为1, 本田设为3，默认为2", 0, 3, 1));
+  startToggles->addItem(makeSectionHeader("声音与显示"));
   startToggles->addItem(new CValueControl("SoundVolumeAdjust", "提示音音量(100%)", "", 5, 200, 5));
   startToggles->addItem(new CValueControl("SoundVolumeAdjustEngage", "接管提示音音量(100%)", "", 5, 200, 5));
   startToggles->addItem(new CValueControl("MaxTimeOffroadMin", "熄屏时间 (分钟)", "", 1, 600, 10));
+  startToggles->addItem(makeSectionHeader("连接与记录"));
   startToggles->addItem(new CValueControl("EnableConnect", "启用远程连接", "2:胡萝卜API, 0/1:konik(您的设备可能会被 Comma 封禁)", 0, 2, 1));
   startToggles->addItem(new CValueControl("MapboxStyle", "地图样式(0)", "0:标准(comma),1:夜间导航,2:卫星街道", 0, 2, 1, {"标准", "夜间导航", "卫星"}));
   startToggles->addItem(new CValueControl("RecordRoadCam", "记录前置摄像头(0)", "1:前置, 2:前置+广角前置, 0:不记录", 0, 2, 1, {"关", "前置", "前置+广角"}));
   startToggles->addItem(new CValueControl("HDPuse", "使用HDP(CCNC)(0)", "1:使用APN时, 2:始终启用, 0:不使用", 0, 2, 1, {"不使用", "APN时", "始终"}));
+  startToggles->addItem(makeSectionHeader("杂项开关"));
   startToggles->addItem(new CValueControl("AutoGasSyncSpeed", "松油门保持巡航速度", "0-关闭，1-开启，当开启此功能时，如果踩油门且当前车速高于巡航速度，巡航速度会自动调整为当前车速", 0, 1, 1, {"关", "开"}));
   startToggles->addItem(new CValueControl("DisableMinSteerSpeed", "禁用最小转向速度限制", "0-关闭,1-开启", 0, 1, 1, {"关", "开"}));
   startToggles->addItem(new CValueControl("DisableDM", "禁用疲劳监测(DM)", "0-关闭,1-开启", 0, 1, 1, {"关", "开"}));
@@ -923,13 +946,16 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   //startToggles->addItem(new CValueControl("LaneChangeLaneCheck", "变道: 检查车道存在", "(0:否,1:车道,2:+路肩)", 0, 2, 1));
 
   speedToggles = new ListWidget(this);
+  speedToggles->addItem(makeSectionHeader("弯道减速"));
   speedToggles->addItem(new CValueControl("AutoCurveSpeedLowerLimit", "弯道: 转弯最低降速限制(30)", "用于限制视觉转弯降速和地图转弯降速的最小速度", 0, 200, 1));
   speedToggles->addItem(new CValueControl("AutoCurveSpeedFactor", "弯道: 降速弯道曲率系数(100%)", "模型预测横摆角速度*此系数，系数越大降速越多", 50, 300, 1));
   speedToggles->addItem(new CValueControl("AutoCurveSpeedAggressiveness", "弯道: 降速横向加速度系数(100%)", "目标横向加速度*此系数，系数越小降速越多", 50, 300, 1));
   speedToggles->addItem(new CValueControl("AutoCurveSpeedFactorH", "高速: 降速弯道曲率系数(100%)", "模型预测横摆角速度*此系数，系数越大降速越多", 50, 300, 1));
   speedToggles->addItem(new CValueControl("AutoCurveSpeedAggressivenessH", "高速: 降速横向加速度系数(100%)", "目标横向加速度*此系数，系数越小降速越多", 50, 300, 1));
+  speedToggles->addItem(makeSectionHeader("道路限速"));
   speedToggles->addItem(new CValueControl("AutoRoadSpeedLimitOffset", "道路限速偏移(0)", "-1:不启用(如果不想道路限速生效,设置为-1), 其他值:限速=道路限速+此偏移值", -1, 100, 1));
   speedToggles->addItem(new CValueControl("AutoRoadSpeedAdjust", "自动调整道路限速(-1)", "当道路限速发生变化时，按此比例平滑调整到新限速,<0时，则用限速*测速点安全系数或限速+偏移", -1, 100, 5));
+  speedToggles->addItem(makeSectionHeader("测速点减速"));
   speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrlEnd", "测速点减速结束点(6秒)", "设置减速完成点, 数值越大减速越提前完成", 3, 20, 1));
   speedToggles->addItem(new CValueControl("AutoNaviSpeedCtrlMode", "导航限速控制模式(3)", "0:关闭, 1:测速摄像头, 2:+减速带, 3:+移动测速", 0, 3, 1, {"关", "测速摄像头", "+减速带", "+移动测速"}));
   speedToggles->addItem(new CValueControl("AutoNaviSpeedDecelRate", "测速点减速率x0.01m/s²(80)", "数值越小, 越早开始减速", 10, 200, 10));
@@ -937,6 +963,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpTime", "减速带时间距离(1秒)", "", 1, 50, 1));
   speedToggles->addItem(new CValueControl("AutoNaviSpeedBumpSpeed", "减速带通过速度(35Km/h)", "", 10, 100, 5));
   speedToggles->addItem(new CValueControl("AutoNaviCountDownMode", "导航倒计时模式(0)", "0:关闭, 1:转向+摄像头, 2:转向+摄像头+减速带", 0, 2, 1, {"关", "转向+摄像头", "转向+摄像头+减速带"}));
+  speedToggles->addItem(makeSectionHeader("转弯控制"));
   speedToggles->addItem(new CValueControl("TurnSpeedControlMode", "转弯速度控制模式(2)", "0:关闭, 1:视觉, 2:视觉+路线, 3:路线", 0, 3, 1, {"关", "视觉", "视觉+路线", "路线"}));
   speedToggles->addItem(new CValueControl("MapTurnSpeedFactor", "地图转弯速度系数(100%)", "在使用地图转弯速度时，实际转弯速度=地图速度*x%，在转弯速度控制模式为2或3时生效", 50, 300, 5));
   speedToggles->addItem(new CValueControl("AutoTurnControl", "ATC: 自动转弯控制(2)", "0:无, 1:变道, 2:变道+减速, 3:减速", 0, 3, 1, {"无", "变道", "变道+减速", "减速"}));
@@ -946,17 +973,20 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
 
   //new
   navToggles = new ListWidget(this);
+  navToggles->addItem(makeSectionHeader("道路与打灯"));
   navToggles->addItem(new CValueControl("RoadType", "手动设置道路类型(-1)", "-2:从导航获取(>=85快速路,>=100高速,公路类型由导航决定),-1:自动(<85km/h公路,>=85快速路,>=100高速)，0:高速(无应急车道) 1:高速(有应急车道), >=2:其它道路", -10, 100, 1));
   navToggles->addItem(new CValueControl("SameSpiCamFilter", "过滤相同测速数据(1)", "0:关闭, 1:打开", 0, 1, 1, {"关", "开"}));
   navToggles->addItem(new CValueControl("StockBlinkerCtrl", "外接控制原车转向拔杆(0)", "0:关闭, 1:打开", 0, 1, 1, {"关", "开"}));
   navToggles->addItem(new CValueControl("ExtBlinkerCtrlTest", "外接控制器自检(0)", "0:关闭, 1:打开", 0, 1, 1, {"关", "开"}));
   navToggles->addItem(new CValueControl("BlinkerMode", "手动打灯控制模式(0)", "0:自动,低于变道速度时执行转弯意图, 1:仅变道", 0, 1, 1, {"自动", "仅变道"}));
+  navToggles->addItem(makeSectionHeader("变道安全"));
   navToggles->addItem(new CValueControl("LaneStabTime", "车道数稳定时间(50x0.1s)", "当检测车道数稳定时间超过设定值后，则认为已经稳定，单位为0.1秒", 5, 100, 1));
   navToggles->addItem(new CValueControl("BsdDelayTime", "后盲区有车延时(10x0.1s)", "当后盲区有车信号消失后，经过延时的秒数后允许变道", 0, 100, 1));
   navToggles->addItem(new CValueControl("SideBsdDelayTime", "侧前方有车延时(10x0.1s)", "当侧前方有车信号消失后，经过延时的秒数后允许变道", 0, 100, 1));
   navToggles->addItem(new CValueControl("SideRelDistTime", "侧前方有车变道相对距离(10x0.1s)", "当与侧前方车辆相对距离小于本车速度x时间时不允许变道，单位0.1秒", 0, 50, 1));
   navToggles->addItem(new CValueControl("SidevRelDistTime", "侧前方有车变道等效距离(5x0.1s)", "侧前方车辆速度x3+相对距离小于本车速度x(时间+3)时，不允许变道，单位0.1秒", 0, 50, 1));
   navToggles->addItem(new CValueControl("SideRadarMinDist", "侧面最小雷达距离(0m)", "在左右两侧的车道上，忽略小于此雷达探测距离的车辆，单位为0.1m", -50, 100, 1));
+  navToggles->addItem(makeSectionHeader("高速匝道"));
   navToggles->addItem(new CValueControl("AutoForkDistOffsetH", "H 提前靠边行驶距离(2000m)", "在距离匝道口多少米时开始变道到最侧面车道，设置为0则不提前变道", 0, 5000, 5));
   navToggles->addItem(new CValueControl("AutoEnTurnNewLaneTimeH", "H 出现新车道判定时间(30*0.1s)", "车辆已在最侧边车道，若新车道出现的时间超过设置值后允许再次变道，单位0.1s，推荐值5秒，0 关闭", 0, 300, 1));
   navToggles->addItem(new CValueControl("AutoDoForkDecalDistH", "H 进匝道减速距离偏移(80m)", "在距离匝道口多少米时开始减速，软件根据速度计算的距离加上此偏移为实际距离", 0, 500, 5));
@@ -967,6 +997,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   navToggles->addItem(new CValueControl("AutoForkSpeedMinH", "H 进匝道最低速度(60)", "在进匝道口前允许把车速降至的最低速度，低于此速度时则不再继续降低", 0, 100, 5));
   navToggles->addItem(new CValueControl("AutoKeepForkSpeedH", "H 进匝道保持速度时间(5s)", "进了匝道口后保持当前速度行驶的时间，0-关闭", 0, 60, 1));
 
+  navToggles->addItem(makeSectionHeader("普通道路匝道"));
   navToggles->addItem(new CValueControl("AutoForkDistOffset", "L 提前靠边行驶距离(30m)", "在距离公路分叉口多少米时开始变道到最侧面车道，设置为0则不提前变道", 0, 2000, 5));
   navToggles->addItem(new CValueControl("AutoEnTurnNewLaneTime", "L 出现新车道判定时间(30*0.1s)", "车辆已在最侧边车道，若新车道出现的时间超过设置值后允许再次变道，单位0.1s，推荐值5秒，0 关闭", 0, 300, 1));
   navToggles->addItem(new CValueControl("AutoDoForkDecalDist", "L 进匝道减速距离偏移(20m)", "在距离公路分叉口多少米时开始减速，软件根据速度计算的距离加上此偏移为实际距离", 0, 500, 5));
@@ -977,6 +1008,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   navToggles->addItem(new CValueControl("AutoForkSpeedMin", "L 进匝道最低速度(45)", "在进公路分叉口时前允许把车速降至的最低速度，低于此速度时则不再继续降低", 0, 100, 5));
   navToggles->addItem(new CValueControl("AutoKeepForkSpeed", "L 进匝道保持速度时间(5s)", "进了分叉口后保持当前速度行驶的时间，0-关闭", 0, 60, 1));
 
+  navToggles->addItem(makeSectionHeader("ATC 与限速提升"));
   //navToggles->addItem(new CValueControl("NewLaneWidthDiff", "ATC 新车道出现标准(0.8m)", "当侧面的车道在1秒内的宽度增加这个宽度时，则认为有新车道出现，推荐设置0.8m，1代表0.1m", 2, 10, 1));
   navToggles->addItem(new CValueControl("AutoTurnDistOffset", "ATC 自动转弯距离偏移(0m)", "提前自动转弯的距离，一般为0，仅针对转弯类型(非变道)", -100, 200, 1));
   navToggles->addItem(new CValueControl("AutoTurnInNotRoadEdge", "ATC 非侧边车道允许变道(0)", "0-不允许在非侧边车道自动变道，1-允许", 0, 1, 1, {"关", "开"}));
