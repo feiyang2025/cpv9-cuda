@@ -365,4 +365,7 @@ inline static std::unordered_map<std::string, uint32_t> keys = {
     {"FcamLiveActive", PERSISTENT},
     {"WideCalibIntrinsicsFcamBackup", CLEAR_ON_MANAGER_START},
     {"WideCalibIntrinsicsEcamBackup", CLEAR_ON_MANAGER_START},
+    //cpv9 failover 双模型(2026-09-16): Model=主模型名(如 BigCombo), FallbackModel=热备名(空=自动)
+    {"Model", PERSISTENT},
+    {"FallbackModel", PERSISTENT},
 };
