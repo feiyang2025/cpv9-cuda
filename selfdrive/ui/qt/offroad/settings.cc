@@ -791,8 +791,8 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
 
   dispToggles = new ListWidget(this);
   dispToggles->addItem(new CValueControl("ShowDebugLog", "调试日志", "值的每个位代表一种日志,1-导航信息,2-变道请求,4-变道状态机,8-变道状态信息,如果要多个调试信息则相加", 0, 255, 1));
-  dispToggles->addItem(new CValueControl("ShowDebugUI", "调试信息", "", 0, 2, 1, {"关", "开", "详细"}));
-  dispToggles->addItem(new CValueControl("ShowTpms", "胎压信息", "", 0, 3, 1, {"关", "开", "简略", "详细"}));
+  dispToggles->addItem(new CValueControl("ShowDebugUI", "调试信息", "0:关,1:设备信息,2:详细调试文本", 0, 2, 1, {"关", "开", "详细"}));
+  dispToggles->addItem(new CValueControl("ShowTpms", "胎压信息", "0:无,1:右上角,2:底部,3:两处都显示", 0, 3, 1, {"关", "右上", "底部", "两者"}));
   dispToggles->addItem(new CValueControl("ShowDateTime", "时间信息", "0:无,1:时间/日期,2:仅时间,3:仅日期", 0, 3, 1, {"关", "时间/日期", "仅时间", "仅日期"}));
   dispToggles->addItem(new CValueControl("ShowPathEnd", "轨迹终点", "0:无,1:显示", 0, 1, 1, {"关", "开"}));
   dispToggles->addItem(new CValueControl("ShowDeviceState", "设备状态", "0:无,1:显示", 0, 1, 1, {"关", "开"}));
