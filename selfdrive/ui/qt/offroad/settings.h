@@ -151,6 +151,7 @@ private:
   void refresh();
   void adjustValue(int delta);
   void showPopup();
+  void mouseReleaseEvent(QMouseEvent* event) override;
 
   QStringList m_map;  // 空 = 普通数值显示; 非空 = 中文模式名显示 + 循环切换 + 点击弹窗
 
