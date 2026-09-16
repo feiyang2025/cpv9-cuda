@@ -1,0 +1,12 @@
+{
+  "channel": "carrot2-v9",
+  "openpilot": {
+    "version": "0.9.7.5",
+    "release_notes": "carrot v9 cuda build",
+    "git_commit": "ce355250be726f9bc8f0ac165a6cde41586a983d",
+    "git_origin": "github.com/ajouatom/openpilot",
+    "git_commit_date": "2026-09-15T15:38:33+08:00",
+    "build_style": "agx-orin",
+    "is_dirty": false
+  }
+}
