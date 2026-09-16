@@ -750,9 +750,18 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   latLongToggles->addItem(new CValueControl("SteerRatioRate", "横向: 转向比应用速率x0.01(100)", "SteerRatioRate转向比应用速率，实时学习得到的SteerRatio会乘上这个系数作为最终的转向比", 30, 170, 1));
   latLongToggles->addItem(new CValueControl("PathOffset", "横向: 路径偏移", "(-)左偏, (+)右偏", -150, 150, 1));
   latLongToggles->addItem(new CValueControl("SteerActuatorDelay", "横向: 转向执行器延迟(25)", "SteerActuatorDelay, x0.01, 0:使用自学习的延迟, 其它值指定延迟", 0, 100, 1));
+
+  // ── 横向扭矩标定(SP 联动): 扭矩模式 + 数值 + NNFF ──
+  {
+    QLabel* hdr = new QLabel("── 横向扭矩标定 ──");
+    hdr->setStyleSheet("color: #8a8a8a; font-size: 26px; font-weight: 600; padding: 16px 0 4px 0;");
+    latLongToggles->addItem(hdr);
+  }
   latLongToggles->addItem(new CValueControl("LateralTorqueCustom", "横向: 扭矩模式", "0=自学习(SP推荐) 1=自定义(手动) 2=默认值", 0, 2, 1, {"自学习", "自定义", "默认值"}));
   latLongToggles->addItem(new CValueControl("LateralTorqueAccelFactor", "横向: 扭矩加速度因子(3080)", "LateralTorqueAccelFactor", 1000, 6000, 10));
   latLongToggles->addItem(new CValueControl("LateralTorqueFriction", "横向: 扭矩摩擦补偿(120)", "LateralTorqueFriction", 0, 1000, 10));
+  latLongToggles->addItem(new CValueControl("NNFF", "NNFF", "Twilsonco的NNFF(需重启)", 0, 1, 1, {"关", "开"}));
+  latLongToggles->addItem(new CValueControl("NNFFLite", "NNFF精简版", "Twilsonco的NNFF-Lite(需重启)", 0, 1, 1, {"关", "开"}));
   latLongToggles->addItem(new CValueControl("CustomSteerMax", "横向: 自定义最大转向力(0)", "CustomSteerMax", 0, 30000, 5));
   latLongToggles->addItem(new CValueControl("CustomSteerDeltaUp", "横向: 转向增量上升(0)", "CustomSteerDeltaUp", 0, 50, 1));
   latLongToggles->addItem(new CValueControl("CustomSteerDeltaDown", "横向: 转向增量下降(0)", "CustomSteerDeltaDown", 0, 50, 1));
@@ -901,8 +910,6 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   startToggles->addItem(new CValueControl("MapboxStyle", "地图样式(0)", "0:标准(comma),1:夜间导航,2:卫星街道", 0, 2, 1, {"标准", "夜间导航", "卫星"}));
   startToggles->addItem(new CValueControl("RecordRoadCam", "记录前置摄像头(0)", "1:前置, 2:前置+广角前置, 0:不记录", 0, 2, 1, {"关", "前置", "前置+广角"}));
   startToggles->addItem(new CValueControl("HDPuse", "使用HDP(CCNC)(0)", "1:使用APN时, 2:始终启用, 0:不使用", 0, 2, 1, {"不使用", "APN时", "始终"}));
-  startToggles->addItem(new CValueControl("NNFF", "NNFF", "Twilsonco的NNFF(需重启)", 0, 1, 1, {"关", "开"}));
-  startToggles->addItem(new CValueControl("NNFFLite", "NNFF精简版", "Twilsonco的NNFF-Lite(需重启)", 0, 1, 1, {"关", "开"}));
   startToggles->addItem(new CValueControl("AutoGasSyncSpeed", "松油门保持巡航速度", "0-关闭，1-开启，当开启此功能时，如果踩油门且当前车速高于巡航速度，巡航速度会自动调整为当前车速", 0, 1, 1, {"关", "开"}));
   startToggles->addItem(new CValueControl("DisableMinSteerSpeed", "禁用最小转向速度限制", "0-关闭,1-开启", 0, 1, 1, {"关", "开"}));
   startToggles->addItem(new CValueControl("DisableDM", "禁用疲劳监测(DM)", "0-关闭,1-开启", 0, 1, 1, {"关", "开"}));
