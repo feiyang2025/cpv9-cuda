@@ -897,7 +897,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   startToggles->addItem(new CValueControl("SoundVolumeAdjust", "提示音音量(100%)", "", 5, 200, 5));
   startToggles->addItem(new CValueControl("SoundVolumeAdjustEngage", "接管提示音音量(100%)", "", 5, 200, 5));
   startToggles->addItem(new CValueControl("MaxTimeOffroadMin", "熄屏时间 (分钟)", "", 1, 600, 10));
-  startToggles->addItem(new CValueControl("EnableConnect", "启用远程连接", "您的设备可能会被 Comma 封禁", 0, 2, 1));
+  startToggles->addItem(new CValueControl("EnableConnect", "启用远程连接", "2:胡萝卜API, 0/1:konik(您的设备可能会被 Comma 封禁)", 0, 2, 1));
   startToggles->addItem(new CValueControl("MapboxStyle", "地图样式(0)", "0:标准(comma),1:夜间导航,2:卫星街道", 0, 2, 1, {"标准", "夜间导航", "卫星"}));
   startToggles->addItem(new CValueControl("RecordRoadCam", "记录前置摄像头(0)", "1:前置, 2:前置+广角前置, 0:不记录", 0, 2, 1, {"关", "前置", "前置+广角"}));
   startToggles->addItem(new CValueControl("HDPuse", "使用HDP(CCNC)(0)", "1:使用APN时, 2:始终启用, 0:不使用", 0, 2, 1, {"不使用", "APN时", "始终"}));

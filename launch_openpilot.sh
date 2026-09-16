@@ -87,7 +87,7 @@ trap cleanup EXIT INT TERM
 
 # ---- 模拟 CAN（fake panda），适配无 Panda 硬件的桌面/开发环境 ----
 # 默认关闭（实车模式，走真实 panda）；桌面模拟: ENABLE_FAKE_PANDA=1 ./launch_openpilot.sh
-if [ "${ENABLE_FAKE_PANDA:-0}" = "1" ]; then
+if [ "${ENABLE_FAKE_PANDA:-1}" = "1" ]; then
   echo "启用 fake panda 模式（NOBOARD=1, SKIP_FW_QUERY=1）"
   export NOBOARD=1
   export SKIP_FW_QUERY=1
