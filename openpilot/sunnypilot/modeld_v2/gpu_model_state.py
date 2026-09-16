@@ -424,6 +424,21 @@ class FailoverModelState:
     self._last_primary_core: np.ndarray | None = None
     self._fallback_fail_streak = 0
 
+    # Params 标志:当前激活模型(UI/控制层可读;cp cereal 无 modelV2.big 字段)
+    self._params = Params() if Params is not None else None
+    try:
+      if self._params is not None:
+        self._params.put("FallbackActive", "0")
+    except Exception:
+      pass
+
+  def _set_fallback_flag(self, active: bool) -> None:
+    try:
+      if self._params is not None:
+        self._params.put("FallbackActive", "1" if active else "0")
+    except Exception:
+      pass
+
   # ── 代理主模型接口(modeld.py 使用)──
   @property
   def profile(self):
@@ -516,6 +531,7 @@ class FailoverModelState:
       self._state = "fallback"
       self._healthy_streak = 0
       self._fallback_fail_streak = 0
+      self._set_fallback_flag(True)
       fb = self._fb_run(bufs, transforms, inputs, False)
       if fb is not None:
         return fb
@@ -535,6 +551,7 @@ class FailoverModelState:
           self._healthy_streak = 0
           self._freeze_streak = 0
           self._last_primary_core = None
+          self._set_fallback_flag(False)
       else:
         self._healthy_streak = 0
     if fb is not None:

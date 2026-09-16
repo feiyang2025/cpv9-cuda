@@ -283,16 +283,16 @@ def get_model_paths():
 
   return vision_pkl_path, policy_pkl_path, vision_metadata_path, policy_metadata_path
 
-def _make_model(cam_w: int, cam_h: int, chestnut: bool = False):
+def _make_model(cam_w: int, cam_h: int, chestnut: bool = False, cl_context=None):
   if not chestnut and os.getenv("DISABLE_CUDA_BACKEND", "0") != "1":
     try:
-      from openpilot.sunnypilot.modeld_v2.gpu_model_state import GpuModelState
-      model = GpuModelState(cam_w=cam_w, cam_h=cam_h, chestnut=False)
-      cloudlog.warning("Using GpuModelState (CUDA/TensorRT)")
+      from openpilot.sunnypilot.modeld_v2.gpu_model_state import FailoverModelState
+      model = FailoverModelState(cam_w=cam_w, cam_h=cam_h, chestnut=False)
+      cloudlog.warning("Using FailoverModelState (CUDA/TensorRT, big model + hot-standby fallback)")
       return model
     except Exception:
-      cloudlog.exception("GpuModelState init failed, falling back to tinygrad ModelState")
-  return ModelState(cam_w=cam_w, cam_h=cam_h, chestnut=chestnut)
+      cloudlog.exception("FailoverModelState init failed, falling back to tinygrad ModelState")
+  return ModelState(cl_context)
 
 
 def main(demo=False):
@@ -313,7 +313,8 @@ def main(demo=False):
   cloudlog.warning("setting up CL context")
   cl_context = CLContext()
   cloudlog.warning("CL context ready; loading model")
-  model = ModelState(cl_context)
+  # CUDA/TensorRT 主路径(大模型主跑 + 热备小模型 failover),失败回退 tinygrad
+  model = _make_model(0, 0, cl_context=cl_context)
   cloudlog.warning(f"models loaded in {time.monotonic() - st:.1f}s, modeld starting")
 
   # visionipc clients
