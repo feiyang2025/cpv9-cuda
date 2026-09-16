@@ -1,0 +1,4829 @@
+{
+  "generated_from": "E:\\Model\\增加导航\\fishop-openpilot-cpv9-dev\\opendbc_repo\\opendbc",
+  "cars": {
+    "ACURA_ILX": {
+      "latAccelFactor": 1.524988973896102,
+      "maxLatAccelMeasured": 0.519011053086259,
+      "friction": 0.34236219253028,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1525,
+        "LateralTorqueFriction": 342,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "ACURA_RDX": {
+      "latAccelFactor": 0.9987728568686902,
+      "maxLatAccelMeasured": 0.5323765166196301,
+      "friction": 0.303218805715844,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 999,
+        "LateralTorqueFriction": 303,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "ACURA_RDX_3G": {
+      "latAccelFactor": 1.4314459806646749,
+      "maxLatAccelMeasured": 0.33874701282109954,
+      "friction": 0.18048847083897598,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1431,
+        "LateralTorqueFriction": 180,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "AUDI_A3_MK3": {
+      "latAccelFactor": 1.5122414863077502,
+      "maxLatAccelMeasured": 1.7443517531719404,
+      "friction": 0.15194151892450905,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1512,
+        "LateralTorqueFriction": 152,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "AUDI_Q2_MK1": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "AUDI_Q3_MK2": {
+      "latAccelFactor": 1.4439223359448605,
+      "maxLatAccelMeasured": 1.2254955789112076,
+      "friction": 0.1413798895978097,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1444,
+        "LateralTorqueFriction": 141,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "BUICK_BABYENCLAVE": {
+      "latAccelFactor": 1.45,
+      "maxLatAccelMeasured": 1.6,
+      "friction": 0.2,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1450,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "BUICK_LACROSSE": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "BUICK_REGAL": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_ATS": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_CT6_ACC": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_CT6_CC": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_ESCALADE": {
+      "latAccelFactor": 1.899999976158142,
+      "maxLatAccelMeasured": 1.842270016670227,
+      "friction": 0.1120000034570694,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1900,
+        "LateralTorqueFriction": 112,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_ESCALADE_ESV": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_ESCALADE_ESV_2019": {
+      "latAccelFactor": 1.15,
+      "maxLatAccelMeasured": 1.3,
+      "friction": 0.2,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1150,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_XT4": {
+      "latAccelFactor": 1.45,
+      "maxLatAccelMeasured": 1.6,
+      "friction": 0.2,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1450,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CADILLAC_XT5_CC": {
+      "latAccelFactor": 1.6,
+      "maxLatAccelMeasured": 1.6,
+      "friction": 0.2,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1600,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_BOLT_2017": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.05,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_BOLT_2018": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.05,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_BOLT_CC": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.05,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_BOLT_EUV": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.05,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_EQUINOX": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.05,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_EQUINOX_CC": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.05,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_MALIBU": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_MALIBU_CC": {
+      "latAccelFactor": 1.85,
+      "maxLatAccelMeasured": 1.85,
+      "friction": 0.075,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1850,
+        "LateralTorqueFriction": 75,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_SILVERADO": {
+      "latAccelFactor": 1.9,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.112,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1900,
+        "LateralTorqueFriction": 112,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_SUBURBAN": {
+      "latAccelFactor": 1.9,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.112,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1900,
+        "LateralTorqueFriction": 112,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_SUBURBAN_CC": {
+      "latAccelFactor": 1.9,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.112,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1900,
+        "LateralTorqueFriction": 112,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_TRAILBLAZER": {
+      "latAccelFactor": 1.33,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.16,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1330,
+        "LateralTorqueFriction": 160,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_TRAILBLAZER_CC": {
+      "latAccelFactor": 1.33,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.16,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1330,
+        "LateralTorqueFriction": 160,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_TRAVERSE": {
+      "latAccelFactor": 1.33,
+      "maxLatAccelMeasured": 1.33,
+      "friction": 0.18,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1330,
+        "LateralTorqueFriction": 180,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_TRAX": {
+      "latAccelFactor": 1.33,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.16,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1330,
+        "LateralTorqueFriction": 160,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_TRAX_2024": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_VOLT": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_VOLT_2019": {
+      "latAccelFactor": 1.4,
+      "maxLatAccelMeasured": 1.4,
+      "friction": 0.16,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1400,
+        "LateralTorqueFriction": 160,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHEVROLET_VOLT_CC": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHRYSLER_PACIFICA_2018": {
+      "latAccelFactor": 2.0714,
+      "maxLatAccelMeasured": 1.3366521181047952,
+      "friction": 0.13776367250652022,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2071,
+        "LateralTorqueFriction": 138,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHRYSLER_PACIFICA_2018_HYBRID": {
+      "latAccelFactor": 2.08887,
+      "maxLatAccelMeasured": 1.2943025830995154,
+      "friction": 0.114818,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2089,
+        "LateralTorqueFriction": 115,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHRYSLER_PACIFICA_2019_HYBRID": {
+      "latAccelFactor": 1.9012,
+      "maxLatAccelMeasured": 1.1958788168371808,
+      "friction": 0.13152,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1901,
+        "LateralTorqueFriction": 132,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "CHRYSLER_PACIFICA_2020": {
+      "latAccelFactor": 1.86206,
+      "maxLatAccelMeasured": 1.509076559398423,
+      "friction": 0.14328246159386085,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1862,
+        "LateralTorqueFriction": 143,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "COMMA_BODY": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1000.0,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "DODGE_DURANGO": {
+      "latAccelFactor": 1.86206,
+      "maxLatAccelMeasured": 1.509076559398423,
+      "friction": 0.14328246159386085,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1862,
+        "LateralTorqueFriction": 143,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_BRONCO_SPORT_MK1": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_ESCAPE_MK4": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_EXPLORER_MK6": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_FOCUS_MK4": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_F_150_LIGHTNING_MK1": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_F_150_MK14": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_MAVERICK_MK1": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_MUSTANG_MACH_E_MK1": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "FORD_RANGER_MK2": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_EQ900": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_EQ900_L": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_G70": {
+      "latAccelFactor": 3.8520195946707947,
+      "maxLatAccelMeasured": 2.354697063349854,
+      "friction": 0.06830285485626221,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3852,
+        "LateralTorqueFriction": 68,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_G70_2020": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_G80": {
+      "latAccelFactor": 3.8520195946707947,
+      "maxLatAccelMeasured": 2.354697063349854,
+      "friction": 0.06830285485626221,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3852,
+        "LateralTorqueFriction": 68,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_G80_2ND_GEN_FL": {
+      "latAccelFactor": 2.5819356441497803,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.11244568973779678,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2582,
+        "LateralTorqueFriction": 112,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_G90": {
+      "latAccelFactor": 3.8520195946707947,
+      "maxLatAccelMeasured": 2.354697063349854,
+      "friction": 0.06830285485626221,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3852,
+        "LateralTorqueFriction": 68,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_G90_2019": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_GV60_EV_1ST_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_GV70_1ST_GEN": {
+      "latAccelFactor": 2.42,
+      "maxLatAccelMeasured": 2.42,
+      "friction": 0.1,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2420,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_GV70_ELECTRIFIED_1ST_GEN": {
+      "latAccelFactor": 1.9,
+      "maxLatAccelMeasured": 1.9,
+      "friction": 0.09,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1900,
+        "LateralTorqueFriction": 90,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_GV70_EV_1ST_GEN": {
+      "latAccelFactor": 2.42,
+      "maxLatAccelMeasured": 2.42,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2420,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GENESIS_GV80": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GMC_ACADIA": {
+      "latAccelFactor": 1.6,
+      "maxLatAccelMeasured": 1.6,
+      "friction": 0.2,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1600,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "GMC_YUKON": {
+      "latAccelFactor": 1.2,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.26,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1200,
+        "LateralTorqueFriction": 260,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HOLDEN_ASTRA": {
+      "latAccelFactor": 1.5961527626411784,
+      "maxLatAccelMeasured": 1.8422651988094612,
+      "friction": 0.1572393918005158,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1596,
+        "LateralTorqueFriction": 157,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_ACCORD": {
+      "latAccelFactor": 1.6893333799149202,
+      "maxLatAccelMeasured": 0.3246749081720698,
+      "friction": 0.2120497022936265,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1689,
+        "LateralTorqueFriction": 212,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CIVIC": {
+      "latAccelFactor": 1.6528895627785531,
+      "maxLatAccelMeasured": 0.4018518740819229,
+      "friction": 0.25458812851328544,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1653,
+        "LateralTorqueFriction": 255,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CIVIC_2022": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 1.2,
+      "friction": 0.15,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CIVIC_BOSCH": {
+      "latAccelFactor": 1.691708637466905,
+      "maxLatAccelMeasured": 0.40132900729454185,
+      "friction": 0.25460295304024094,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1692,
+        "LateralTorqueFriction": 255,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CIVIC_BOSCH_DIESEL": {
+      "latAccelFactor": 1.691708637466905,
+      "maxLatAccelMeasured": 0.40132900729454185,
+      "friction": 0.25460295304024094,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1692,
+        "LateralTorqueFriction": 255,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CRV": {
+      "latAccelFactor": 0.7667141440182675,
+      "maxLatAccelMeasured": 0.5927571534745969,
+      "friction": 0.40909087636157127,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 767,
+        "LateralTorqueFriction": 409,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CRV_5G": {
+      "latAccelFactor": 2.01323205142022,
+      "maxLatAccelMeasured": 0.2700612209345081,
+      "friction": 0.2238412881331528,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2013,
+        "LateralTorqueFriction": 224,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CRV_EU": {
+      "latAccelFactor": 0.7667141440182675,
+      "maxLatAccelMeasured": 0.5927571534745969,
+      "friction": 0.40909087636157127,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 767,
+        "LateralTorqueFriction": 409,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_CRV_HYBRID": {
+      "latAccelFactor": 2.072034634644233,
+      "maxLatAccelMeasured": 0.7152085160516978,
+      "friction": 0.20237105008376083,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2072,
+        "LateralTorqueFriction": 202,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_E": {
+      "latAccelFactor": 1.691708637466905,
+      "maxLatAccelMeasured": 0.40132900729454185,
+      "friction": 0.25460295304024094,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1692,
+        "LateralTorqueFriction": 255,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_FIT": {
+      "latAccelFactor": 1.5719981427109775,
+      "maxLatAccelMeasured": 0.5712761407108976,
+      "friction": 0.110773383324281,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1572,
+        "LateralTorqueFriction": 111,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_FREED": {
+      "latAccelFactor": 1.8774809275211801,
+      "maxLatAccelMeasured": 0.8394431662987996,
+      "friction": 0.2096978613792822,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1877,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_HRV": {
+      "latAccelFactor": 2.0661212805710205,
+      "maxLatAccelMeasured": 0.7521343418694775,
+      "friction": 0.17760375789242094,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2066,
+        "LateralTorqueFriction": 178,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_HRV_3G": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 1.2,
+      "friction": 0.2,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_INSIGHT": {
+      "latAccelFactor": 1.5201671214069354,
+      "maxLatAccelMeasured": 0.5660229120683284,
+      "friction": 0.25808042580281876,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1520,
+        "LateralTorqueFriction": 258,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_ODYSSEY": {
+      "latAccelFactor": 1.8774809275211801,
+      "maxLatAccelMeasured": 0.8394431662987996,
+      "friction": 0.2096978613792822,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1877,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_ODYSSEY_CHN": {
+      "latAccelFactor": 1.8774809275211801,
+      "maxLatAccelMeasured": 0.8394431662987996,
+      "friction": 0.2096978613792822,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1877,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_PILOT": {
+      "latAccelFactor": 1.7262026201812795,
+      "maxLatAccelMeasured": 0.9470005614967523,
+      "friction": 0.21351430733218763,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1726,
+        "LateralTorqueFriction": 214,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HONDA_RIDGELINE": {
+      "latAccelFactor": 1.4146525028237624,
+      "maxLatAccelMeasured": 0.7356572861629564,
+      "friction": 0.23307177552211328,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1415,
+        "LateralTorqueFriction": 233,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_AZERA_6TH_GEN": {
+      "latAccelFactor": 1.8,
+      "maxLatAccelMeasured": 1.8,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1800,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_AZERA_7TH_GEN": {
+      "latAccelFactor": 1.8,
+      "maxLatAccelMeasured": 1.8,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1800,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_AZERA_HEV_6TH_GEN": {
+      "latAccelFactor": 1.8,
+      "maxLatAccelMeasured": 1.8,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1800,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_CASPER": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_CASPER_EV": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_CUSTIN_1ST_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_ELANTRA": {
+      "latAccelFactor": 2.2200457811703953,
+      "maxLatAccelMeasured": 1.2967330275895228,
+      "friction": 0.14039920986586393,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2220,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_ELANTRA_2021": {
+      "latAccelFactor": 3.169,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.0819,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3169,
+        "LateralTorqueFriction": 82,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_ELANTRA_GT_I30": {
+      "latAccelFactor": 2.2200457811703953,
+      "maxLatAccelMeasured": 1.2967330275895228,
+      "friction": 0.14039920986586393,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2220,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_ELANTRA_HEV_2021": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_GENESIS": {
+      "latAccelFactor": 2.7807965280270794,
+      "maxLatAccelMeasured": 2.325,
+      "friction": 0.0984484465421171,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2781,
+        "LateralTorqueFriction": 98,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_GRANDEUR_IG": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_GRANDEUR_IG_HEV": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ": {
+      "latAccelFactor": 2.970807902012267,
+      "maxLatAccelMeasured": 1.6312321830002083,
+      "friction": 0.1088964990357482,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2971,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_5": {
+      "latAccelFactor": 3.172929,
+      "maxLatAccelMeasured": 2.71305,
+      "friction": 0.096019,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3173,
+        "LateralTorqueFriction": 96,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_5_N": {
+      "latAccelFactor": 3.17,
+      "maxLatAccelMeasured": 2.71,
+      "friction": 0.097,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3170,
+        "LateralTorqueFriction": 97,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_5_PE": {
+      "latAccelFactor": 1.75,
+      "maxLatAccelMeasured": 1.75,
+      "friction": 0.15,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1750,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_6": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.005,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 5,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_9": {
+      "latAccelFactor": 1.75,
+      "maxLatAccelMeasured": 1.75,
+      "friction": 0.15,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1750,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_EV_2020": {
+      "latAccelFactor": 2.970807902012267,
+      "maxLatAccelMeasured": 1.6312321830002083,
+      "friction": 0.1088964990357482,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2971,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_EV_LTD": {
+      "latAccelFactor": 1.7662975472852054,
+      "maxLatAccelMeasured": 1.613755614526594,
+      "friction": 0.17087579756306276,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1766,
+        "LateralTorqueFriction": 171,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_HEV_2022": {
+      "latAccelFactor": 2.970807902012267,
+      "maxLatAccelMeasured": 1.6312321830002083,
+      "friction": 0.1088964990357482,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2971,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_PHEV": {
+      "latAccelFactor": 3.2928700076638537,
+      "maxLatAccelMeasured": 2.1193482926455656,
+      "friction": 0.12463700961468778,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3293,
+        "LateralTorqueFriction": 125,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_IONIQ_PHEV_2019": {
+      "latAccelFactor": 2.970807902012267,
+      "maxLatAccelMeasured": 1.6312321830002083,
+      "friction": 0.1088964990357482,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2971,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA": {
+      "latAccelFactor": 3.078814714619148,
+      "maxLatAccelMeasured": 2.307336938253934,
+      "friction": 0.12359762054065548,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 124,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA_2022": {
+      "latAccelFactor": 3.078814714619148,
+      "maxLatAccelMeasured": 2.307336938253934,
+      "friction": 0.12359762054065548,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 124,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA_EV": {
+      "latAccelFactor": 3.078814714619148,
+      "maxLatAccelMeasured": 2.307336938253934,
+      "friction": 0.12359762054065548,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 124,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA_EV_2022": {
+      "latAccelFactor": 3.078814714619148,
+      "maxLatAccelMeasured": 2.307336938253934,
+      "friction": 0.12359762054065548,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 124,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA_EV_2ND_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA_HEV": {
+      "latAccelFactor": 3.078814714619148,
+      "maxLatAccelMeasured": 2.307336938253934,
+      "friction": 0.12359762054065548,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 124,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_KONA_HEV_2ND_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_NEXO": {
+      "latAccelFactor": 2.7,
+      "maxLatAccelMeasured": 2.7,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2700,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_NEXO_1ST_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_PALISADE": {
+      "latAccelFactor": 2.544642494803999,
+      "maxLatAccelMeasured": 1.8721703683337008,
+      "friction": 0.1301424599248651,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2545,
+        "LateralTorqueFriction": 130,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_PORTER_II_EV": {
+      "latAccelFactor": 1.8,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.15,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1800,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTAFE_MX5": {
+      "latAccelFactor": 3.2,
+      "maxLatAccelMeasured": 3.0,
+      "friction": 0.05,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3200,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTAFE_MX5_HEV": {
+      "latAccelFactor": 3.2,
+      "maxLatAccelMeasured": 3.0,
+      "friction": 0.05,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3200,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTA_CRUZ_1ST_GEN": {
+      "latAccelFactor": 2.7,
+      "maxLatAccelMeasured": 2.7,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2700,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTA_FE": {
+      "latAccelFactor": 3.0787027729757632,
+      "maxLatAccelMeasured": 2.6173437483495565,
+      "friction": 0.1207019341823945,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 121,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTA_FE_2022": {
+      "latAccelFactor": 3.501877602644835,
+      "maxLatAccelMeasured": 2.729064118456137,
+      "friction": 0.10384068104538963,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3502,
+        "LateralTorqueFriction": 104,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTA_FE_HEV_2022": {
+      "latAccelFactor": 3.501877602644835,
+      "maxLatAccelMeasured": 2.729064118456137,
+      "friction": 0.10384068104538963,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3502,
+        "LateralTorqueFriction": 104,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SANTA_FE_PHEV_2022": {
+      "latAccelFactor": 1.6953050513611045,
+      "maxLatAccelMeasured": 1.5837614296206861,
+      "friction": 0.12672855941458458,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1695,
+        "LateralTorqueFriction": 127,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SONATA": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SONATA_2024": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SONATA_HYBRID": {
+      "latAccelFactor": 2.8990264092395734,
+      "maxLatAccelMeasured": 2.061410192222139,
+      "friction": 0.0899805488717382,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2899,
+        "LateralTorqueFriction": 90,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_SONATA_LF": {
+      "latAccelFactor": 2.2200457811703953,
+      "maxLatAccelMeasured": 1.2967330275895228,
+      "friction": 0.14039920986586393,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2220,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_STARIA_4TH_GEN": {
+      "latAccelFactor": 1.8,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.15,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1800,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_TUCSON": {
+      "latAccelFactor": 3.0787027729757632,
+      "maxLatAccelMeasured": 2.6173437483495565,
+      "friction": 0.1207019341823945,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3079,
+        "LateralTorqueFriction": 121,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_TUCSON_4TH_GEN": {
+      "latAccelFactor": 2.960174,
+      "maxLatAccelMeasured": 2.860284,
+      "friction": 0.108745,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2960,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "HYUNDAI_VELOSTER": {
+      "latAccelFactor": 2.2200457811703953,
+      "maxLatAccelMeasured": 1.2967330275895228,
+      "friction": 0.14039920986586393,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2220,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "JEEP_GRAND_CHEROKEE": {
+      "latAccelFactor": 2.27116,
+      "maxLatAccelMeasured": 1.4057367824262523,
+      "friction": 0.11725947414922003,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2271,
+        "LateralTorqueFriction": 117,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "JEEP_GRAND_CHEROKEE_2019": {
+      "latAccelFactor": 2.30972,
+      "maxLatAccelMeasured": 1.289689569171081,
+      "friction": 0.117048,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2310,
+        "LateralTorqueFriction": 117,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_CARNIVAL_4TH_GEN": {
+      "latAccelFactor": 1.75,
+      "maxLatAccelMeasured": 1.75,
+      "friction": 0.15,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1750,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_CEED": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_EV3": {
+      "latAccelFactor": 3.2,
+      "maxLatAccelMeasured": 2.093457,
+      "friction": 0.005,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3200,
+        "LateralTorqueFriction": 5,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_EV6": {
+      "latAccelFactor": 3.2,
+      "maxLatAccelMeasured": 2.093457,
+      "friction": 0.005,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3200,
+        "LateralTorqueFriction": 5,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_EV6_PE": {
+      "latAccelFactor": 3.2,
+      "maxLatAccelMeasured": 2.093457,
+      "friction": 0.005,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3200,
+        "LateralTorqueFriction": 5,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_EV9": {
+      "latAccelFactor": 1.75,
+      "maxLatAccelMeasured": 1.75,
+      "friction": 0.15,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1750,
+        "LateralTorqueFriction": 150,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_EV_SK3": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_FORTE": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5_2021": {
+      "latAccelFactor": 2.405339728085138,
+      "maxLatAccelMeasured": 1.460032270828705,
+      "friction": 0.11650989850813716,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2405,
+        "LateralTorqueFriction": 117,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5_DL3_24": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5_DL3_HEV_24": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5_HEV": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5_HEV_2020": {
+      "latAccelFactor": 2.405339728085138,
+      "maxLatAccelMeasured": 1.460032270828705,
+      "friction": 0.11650989850813716,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2405,
+        "LateralTorqueFriction": 117,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K5_HEV_2022": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K7": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K7_HEV": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K8_HEV_1ST_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_K9": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_MOHAVE": {
+      "latAccelFactor": 2.3,
+      "maxLatAccelMeasured": 2.3,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2300,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_NIRO_EV": {
+      "latAccelFactor": 2.9215954981365337,
+      "maxLatAccelMeasured": 2.1500583840260044,
+      "friction": 0.09236802474810267,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2922,
+        "LateralTorqueFriction": 92,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_NIRO_EV_2ND_GEN": {
+      "latAccelFactor": 2.05,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.14,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2050,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_NIRO_HEV_2021": {
+      "latAccelFactor": 2.9215954981365337,
+      "maxLatAccelMeasured": 2.1500583840260044,
+      "friction": 0.09236802474810267,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2922,
+        "LateralTorqueFriction": 92,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_NIRO_HEV_2ND_GEN": {
+      "latAccelFactor": 2.42,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.12,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2420,
+        "LateralTorqueFriction": 120,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_NIRO_PHEV": {
+      "latAccelFactor": 2.9215954981365337,
+      "maxLatAccelMeasured": 2.1500583840260044,
+      "friction": 0.09236802474810267,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2922,
+        "LateralTorqueFriction": 92,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_NIRO_PHEV_2022": {
+      "latAccelFactor": 2.9215954981365337,
+      "maxLatAccelMeasured": 2.1500583840260044,
+      "friction": 0.09236802474810267,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2922,
+        "LateralTorqueFriction": 92,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_OPTIMA_G4": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_OPTIMA_G4_FL": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_OPTIMA_H": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_OPTIMA_H_G4_FL": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_SELTOS": {
+      "latAccelFactor": 2.9638737459977467,
+      "maxLatAccelMeasured": 2.1259108157250735,
+      "friction": 0.07813665616927593,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2964,
+        "LateralTorqueFriction": 78,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_SORENTO": {
+      "latAccelFactor": 2.464854685101844,
+      "maxLatAccelMeasured": 1.5335274218367956,
+      "friction": 0.12056170567599558,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2465,
+        "LateralTorqueFriction": 121,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_SORENTO_4TH_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_SORENTO_HEV_4TH_GEN": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_SPORTAGE_5TH_GEN": {
+      "latAccelFactor": 2.6,
+      "maxLatAccelMeasured": 2.6,
+      "friction": 0.1,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2600,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_STINGER": {
+      "latAccelFactor": 2.7499043387418967,
+      "maxLatAccelMeasured": 1.849652021986449,
+      "friction": 0.12048334239559202,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2750,
+        "LateralTorqueFriction": 120,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "KIA_STINGER_2022": {
+      "latAccelFactor": 2.7499043387418967,
+      "maxLatAccelMeasured": 1.849652021986449,
+      "friction": 0.12048334239559202,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2750,
+        "LateralTorqueFriction": 120,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_CTH": {
+      "latAccelFactor": 2.3525924753753613,
+      "maxLatAccelMeasured": 1.9731412277641067,
+      "friction": 0.15168101064205927,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2353,
+        "LateralTorqueFriction": 152,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_ES": {
+      "latAccelFactor": 2.0568162685952505,
+      "maxLatAccelMeasured": 1.7576185169559122,
+      "friction": 0.108878753,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2057,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_ES_TSS2": {
+      "latAccelFactor": 2.0357564999999997,
+      "maxLatAccelMeasured": 1.999082295195227,
+      "friction": 0.101533,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2036,
+        "LateralTorqueFriction": 102,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_GS_F": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.08,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 80,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_IS": {
+      "latAccelFactor": 2.3525924753753613,
+      "maxLatAccelMeasured": 1.9731412277641067,
+      "friction": 0.15168101064205927,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2353,
+        "LateralTorqueFriction": 152,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_IS_TSS2": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_LC_TSS2": {
+      "latAccelFactor": 2.4331999786982936,
+      "maxLatAccelMeasured": 2.1045680431705414,
+      "friction": 0.14099899317761067,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2433,
+        "LateralTorqueFriction": 141,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_NX": {
+      "latAccelFactor": 2.3525924753753613,
+      "maxLatAccelMeasured": 1.9731412277641067,
+      "friction": 0.15168101064205927,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2353,
+        "LateralTorqueFriction": 152,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_NX_TSS2": {
+      "latAccelFactor": 2.4331999786982936,
+      "maxLatAccelMeasured": 2.1045680431705414,
+      "friction": 0.14099899317761067,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2433,
+        "LateralTorqueFriction": 141,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_RC": {
+      "latAccelFactor": 2.4331999786982936,
+      "maxLatAccelMeasured": 2.1045680431705414,
+      "friction": 0.14099899317761067,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2433,
+        "LateralTorqueFriction": 141,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_RX": {
+      "latAccelFactor": 1.6430539050086406,
+      "maxLatAccelMeasured": 1.181960058934143,
+      "friction": 0.19768806040843034,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1643,
+        "LateralTorqueFriction": 198,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "LEXUS_RX_TSS2": {
+      "latAccelFactor": 1.5375561442049257,
+      "maxLatAccelMeasured": 1.343166476215164,
+      "friction": 0.1931062001527557,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1538,
+        "LateralTorqueFriction": 193,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MAZDA_3": {
+      "latAccelFactor": 1.7601682915983443,
+      "maxLatAccelMeasured": 1.0889677335154337,
+      "friction": 0.17713792194297195,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1760,
+        "LateralTorqueFriction": 177,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MAZDA_6": {
+      "latAccelFactor": 1.7601682915983443,
+      "maxLatAccelMeasured": 1.0889677335154337,
+      "friction": 0.17713792194297195,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1760,
+        "LateralTorqueFriction": 177,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MAZDA_CX5": {
+      "latAccelFactor": 1.7601682915983443,
+      "maxLatAccelMeasured": 1.0889677335154337,
+      "friction": 0.17713792194297195,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1760,
+        "LateralTorqueFriction": 177,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MAZDA_CX5_2022": {
+      "latAccelFactor": 1.7601682915983443,
+      "maxLatAccelMeasured": 1.0889677335154337,
+      "friction": 0.17713792194297195,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1760,
+        "LateralTorqueFriction": 177,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MAZDA_CX9": {
+      "latAccelFactor": 1.7601682915983443,
+      "maxLatAccelMeasured": 1.0889677335154337,
+      "friction": 0.17713792194297195,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1760,
+        "LateralTorqueFriction": 177,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MAZDA_CX9_2021": {
+      "latAccelFactor": 1.7601682915983443,
+      "maxLatAccelMeasured": 1.0889677335154337,
+      "friction": 0.17713792194297195,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1760,
+        "LateralTorqueFriction": 177,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "MOCK": {
+      "latAccelFactor": 10.0,
+      "maxLatAccelMeasured": 10.0,
+      "friction": 0.0,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 10000,
+        "LateralTorqueFriction": 0,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "NISSAN_ALTIMA": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "NISSAN_LEAF": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "NISSAN_LEAF_IC": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "NISSAN_ROGUE": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "NISSAN_XTRAIL": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 1.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "RAM_1500_5TH_GEN": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 2.0,
+      "friction": 0.05,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "RAM_HD_5TH_GEN": {
+      "latAccelFactor": 1.4,
+      "maxLatAccelMeasured": 1.4,
+      "friction": 0.05,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1400,
+        "LateralTorqueFriction": 50,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "RIVIAN_R1_GEN1": {
+      "latAccelFactor": 2.8,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.07,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2800,
+        "LateralTorqueFriction": 70,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SEAT_ATECA_MK1": {
+      "latAccelFactor": 1.3750394140491293,
+      "maxLatAccelMeasured": 1.5814743077200641,
+      "friction": 0.2018321939386586,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1375,
+        "LateralTorqueFriction": 202,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SKODA_FABIA_MK4": {
+      "latAccelFactor": 1.3750394140491293,
+      "maxLatAccelMeasured": 1.5814743077200641,
+      "friction": 0.2018321939386586,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1375,
+        "LateralTorqueFriction": 202,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SKODA_KAMIQ_MK1": {
+      "latAccelFactor": 1.166437404652981,
+      "maxLatAccelMeasured": 1.1686163012668165,
+      "friction": 0.12194533036948708,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1166,
+        "LateralTorqueFriction": 122,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SKODA_KAROQ_MK1": {
+      "latAccelFactor": 1.166437404652981,
+      "maxLatAccelMeasured": 1.1686163012668165,
+      "friction": 0.12194533036948708,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1166,
+        "LateralTorqueFriction": 122,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SKODA_KODIAQ_MK1": {
+      "latAccelFactor": 1.166437404652981,
+      "maxLatAccelMeasured": 1.1686163012668165,
+      "friction": 0.12194533036948708,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1166,
+        "LateralTorqueFriction": 122,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SKODA_OCTAVIA_MK3": {
+      "latAccelFactor": 1.166437404652981,
+      "maxLatAccelMeasured": 1.1686163012668165,
+      "friction": 0.12194533036948708,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1166,
+        "LateralTorqueFriction": 122,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SKODA_SUPERB_MK3": {
+      "latAccelFactor": 1.166437404652981,
+      "maxLatAccelMeasured": 1.1686163012668165,
+      "friction": 0.12194533036948708,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1166,
+        "LateralTorqueFriction": 122,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_ASCENT": {
+      "latAccelFactor": 3.6617001649776793,
+      "maxLatAccelMeasured": 2.342197172531713,
+      "friction": 0.11075960785398745,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3662,
+        "LateralTorqueFriction": 111,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_ASCENT_2023": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 3.0,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_CROSSTREK_HYBRID": {
+      "latAccelFactor": 2.6068223389108303,
+      "maxLatAccelMeasured": 2.134872342760203,
+      "friction": 0.15261513193561627,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2607,
+        "LateralTorqueFriction": 153,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_FORESTER": {
+      "latAccelFactor": 3.6617001649776793,
+      "maxLatAccelMeasured": 2.342197172531713,
+      "friction": 0.11075960785398745,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3662,
+        "LateralTorqueFriction": 111,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_FORESTER_2022": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 3.0,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_FORESTER_HYBRID": {
+      "latAccelFactor": 2.6068223389108303,
+      "maxLatAccelMeasured": 2.134872342760203,
+      "friction": 0.15261513193561627,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2607,
+        "LateralTorqueFriction": 153,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_FORESTER_PREGLOBAL": {
+      "latAccelFactor": 1.0670704910352047,
+      "maxLatAccelMeasured": 0.8234374840709592,
+      "friction": 0.20986563268614938,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1067,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_IMPREZA": {
+      "latAccelFactor": 1.0670704910352047,
+      "maxLatAccelMeasured": 0.8234374840709592,
+      "friction": 0.20986563268614938,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1067,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_IMPREZA_2020": {
+      "latAccelFactor": 2.6068223389108303,
+      "maxLatAccelMeasured": 2.134872342760203,
+      "friction": 0.15261513193561627,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2607,
+        "LateralTorqueFriction": 153,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_LEGACY": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 1.5,
+      "friction": 0.2,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_LEGACY_PREGLOBAL": {
+      "latAccelFactor": 1.0670704910352047,
+      "maxLatAccelMeasured": 0.8234374840709592,
+      "friction": 0.20986563268614938,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1067,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_OUTBACK": {
+      "latAccelFactor": 2.0,
+      "maxLatAccelMeasured": 1.5,
+      "friction": 0.2,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2000,
+        "LateralTorqueFriction": 200,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_OUTBACK_2023": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 3.0,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_OUTBACK_PREGLOBAL": {
+      "latAccelFactor": 1.0670704910352047,
+      "maxLatAccelMeasured": 0.8234374840709592,
+      "friction": 0.20986563268614938,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1067,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "SUBARU_OUTBACK_PREGLOBAL_2018": {
+      "latAccelFactor": 1.0670704910352047,
+      "maxLatAccelMeasured": 0.8234374840709592,
+      "friction": 0.20986563268614938,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1067,
+        "LateralTorqueFriction": 210,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TESLA_MODEL_3": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 2.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TESLA_MODEL_Y": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 2.5,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_ALPHARD_TSS2": {
+      "latAccelFactor": 1.689726,
+      "maxLatAccelMeasured": 1.3208264576110418,
+      "friction": 0.140456,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1690,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_AVALON": {
+      "latAccelFactor": 2.5185770183845646,
+      "maxLatAccelMeasured": 1.7153346784214922,
+      "friction": 0.10603968787111022,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2519,
+        "LateralTorqueFriction": 106,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_AVALON_2019": {
+      "latAccelFactor": 1.7036141952825095,
+      "maxLatAccelMeasured": 1.239619084240008,
+      "friction": 0.08459830394899492,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1704,
+        "LateralTorqueFriction": 85,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_AVALON_TSS2": {
+      "latAccelFactor": 2.3154403649717357,
+      "maxLatAccelMeasured": 2.7777922854327124,
+      "friction": 0.11453999639164605,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2315,
+        "LateralTorqueFriction": 115,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_CAMRY": {
+      "latAccelFactor": 2.0568162685952505,
+      "maxLatAccelMeasured": 1.7576185169559122,
+      "friction": 0.108878753,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2057,
+        "LateralTorqueFriction": 109,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_CAMRY_TSS2": {
+      "latAccelFactor": 2.3548324999999997,
+      "maxLatAccelMeasured": 2.368900128946771,
+      "friction": 0.118436,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2355,
+        "LateralTorqueFriction": 118,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_CHR": {
+      "latAccelFactor": 1.5591084333664578,
+      "maxLatAccelMeasured": 1.271271459066948,
+      "friction": 0.20259087058453193,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1559,
+        "LateralTorqueFriction": 203,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_CHR_TSS2": {
+      "latAccelFactor": 1.7678810166088303,
+      "maxLatAccelMeasured": 1.3742176337919942,
+      "friction": 0.2319674583741509,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1768,
+        "LateralTorqueFriction": 232,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_COROLLA": {
+      "latAccelFactor": 3.117154369115421,
+      "maxLatAccelMeasured": 1.8438132575043773,
+      "friction": 0.12289685869250652,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 3117,
+        "LateralTorqueFriction": 123,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_COROLLA_TSS2": {
+      "latAccelFactor": 1.991132339206426,
+      "maxLatAccelMeasured": 1.868866242720403,
+      "friction": 0.19570063298031432,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1991,
+        "LateralTorqueFriction": 196,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_HIGHLANDER": {
+      "latAccelFactor": 1.8108348718624456,
+      "maxLatAccelMeasured": 1.6348421600679828,
+      "friction": 0.15972686105120398,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1811,
+        "LateralTorqueFriction": 160,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_HIGHLANDER_TSS2": {
+      "latAccelFactor": 1.9617570834136164,
+      "maxLatAccelMeasured": 1.8611643317268927,
+      "friction": 0.14519673256119725,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1962,
+        "LateralTorqueFriction": 145,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_MIRAI": {
+      "latAccelFactor": 2.506899832157829,
+      "maxLatAccelMeasured": 1.7417213930750164,
+      "friction": 0.20182618449440565,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2507,
+        "LateralTorqueFriction": 202,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_PRIUS": {
+      "latAccelFactor": 1.6,
+      "maxLatAccelMeasured": 1.5023147650693636,
+      "friction": 0.151515,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1600,
+        "LateralTorqueFriction": 152,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_PRIUS_TSS2": {
+      "latAccelFactor": 1.9726,
+      "maxLatAccelMeasured": 1.9104337425537743,
+      "friction": 0.170968,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1973,
+        "LateralTorqueFriction": 171,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_PRIUS_V": {
+      "latAccelFactor": 1.6,
+      "maxLatAccelMeasured": 1.5023147650693636,
+      "friction": 0.151515,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1600,
+        "LateralTorqueFriction": 152,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_RAV4": {
+      "latAccelFactor": 2.085695074355425,
+      "maxLatAccelMeasured": 2.2142832316984733,
+      "friction": 0.13339165270103975,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2086,
+        "LateralTorqueFriction": 133,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_RAV4H": {
+      "latAccelFactor": 1.9796257271652042,
+      "maxLatAccelMeasured": 1.7503987331707576,
+      "friction": 0.14628860048885406,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1980,
+        "LateralTorqueFriction": 146,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_RAV4_PRIME": {
+      "latAccelFactor": 2.279239424615458,
+      "maxLatAccelMeasured": 2.087101966779332,
+      "friction": 0.13682208413446817,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2279,
+        "LateralTorqueFriction": 137,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_RAV4_TSS2": {
+      "latAccelFactor": 2.279239424615458,
+      "maxLatAccelMeasured": 2.087101966779332,
+      "friction": 0.13682208413446817,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2279,
+        "LateralTorqueFriction": 137,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_RAV4_TSS2_2022": {
+      "latAccelFactor": 2.241883248393209,
+      "maxLatAccelMeasured": 1.9304407208090029,
+      "friction": 0.112174,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2242,
+        "LateralTorqueFriction": 112,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_RAV4_TSS2_2023": {
+      "latAccelFactor": null,
+      "maxLatAccelMeasured": 3.0,
+      "friction": null,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": null,
+        "LateralTorqueFriction": null,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_SIENNA": {
+      "latAccelFactor": 1.689726,
+      "maxLatAccelMeasured": 1.3208264576110418,
+      "friction": 0.140456,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1690,
+        "LateralTorqueFriction": 140,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_SIENNA_4TH_GEN": {
+      "latAccelFactor": 2.279239424615458,
+      "maxLatAccelMeasured": 2.087101966779332,
+      "friction": 0.13682208413446817,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2279,
+        "LateralTorqueFriction": 137,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "TOYOTA_YARIS": {
+      "latAccelFactor": 2.22984,
+      "maxLatAccelMeasured": 1.86145,
+      "friction": 0.168189,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2230,
+        "LateralTorqueFriction": 168,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_ARTEON_MK1": {
+      "latAccelFactor": 1.45136518053819,
+      "maxLatAccelMeasured": 1.3639364049316804,
+      "friction": 0.23806361745695032,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1451,
+        "LateralTorqueFriction": 238,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_ATLAS_MK1": {
+      "latAccelFactor": 1.4677006726964945,
+      "maxLatAccelMeasured": 1.6733266634075656,
+      "friction": 0.12959584092073367,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1468,
+        "LateralTorqueFriction": 130,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_CADDY_MK3": {
+      "latAccelFactor": 1.2,
+      "maxLatAccelMeasured": 1.2,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1200,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_CRAFTER_MK2": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_GOLF_MK7": {
+      "latAccelFactor": 1.3750394140491293,
+      "maxLatAccelMeasured": 1.5814743077200641,
+      "friction": 0.2018321939386586,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1375,
+        "LateralTorqueFriction": 202,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_JETTA_MK6": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_JETTA_MK7": {
+      "latAccelFactor": 1.2271623034089392,
+      "maxLatAccelMeasured": 1.216955117387,
+      "friction": 0.19437384688370712,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1227,
+        "LateralTorqueFriction": 194,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_PASSAT_MK8": {
+      "latAccelFactor": 1.3432120736752917,
+      "maxLatAccelMeasured": 1.7087275587362314,
+      "friction": 0.19444383787326647,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1343,
+        "LateralTorqueFriction": 194,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_PASSAT_NMS": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_POLO_MK6": {
+      "latAccelFactor": 1.3750394140491293,
+      "maxLatAccelMeasured": 1.5814743077200641,
+      "friction": 0.2018321939386586,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 1375,
+        "LateralTorqueFriction": 202,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_SHARAN_MK2": {
+      "latAccelFactor": 2.5,
+      "maxLatAccelMeasured": 2.5,
+      "friction": 0.1,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 2500,
+        "LateralTorqueFriction": 100,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_TAOS_MK1": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_TCROSS_MK1": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_TIGUAN_MK2": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": true,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_TOURAN_MK2": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_TRANSPORTER_T61": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    },
+    "VOLKSWAGEN_TROC_MK1": {
+      "latAccelFactor": 0.9711965500094828,
+      "maxLatAccelMeasured": 1.0001565939459098,
+      "friction": 0.1465626137072916,
+      "nnffModel": false,
+      "cp": {
+        "LateralTorqueCustom": 1,
+        "LateralTorqueAccelFactor": 971,
+        "LateralTorqueFriction": 147,
+        "LateralTorqueKpV": 100,
+        "LateralTorqueKiV": 10,
+        "LateralTorqueKf": 100,
+        "LateralTorqueKd": 0,
+        "CustomSteerMax": 0,
+        "CustomSteerDeltaUp": 0,
+        "CustomSteerDeltaDown": 0
+      }
+    }
+  }
+}

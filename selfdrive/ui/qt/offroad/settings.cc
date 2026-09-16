@@ -14,6 +14,7 @@
 
 #include "common/watchdog.h"
 #include "common/util.h"
+#include "json11.hpp"
 #include "selfdrive/ui/qt/network/networking.h"
 #include "selfdrive/ui/qt/offroad/settings.h"
 #include "selfdrive/ui/qt/qt_window.h"
@@ -718,6 +719,14 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
     updateButtonStyles();
   });
 
+  QPushButton* tuning_btn = new QPushButton(tr("标定"));
+  tuning_btn->setObjectName("tuning_btn");
+  QObject::connect(tuning_btn, &QPushButton::clicked, this, [this]() {
+    this->currentCarrotIndex = 7;
+    this->togglesCarrot(7);
+    updateButtonStyles();
+  });
+
 
   updateButtonStyles();
 
@@ -728,6 +737,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   select_layout->addWidget(latLong_btn);
   select_layout->addWidget(disp_btn);
   select_layout->addWidget(path_btn);
+  select_layout->addWidget(tuning_btn);
   carrotLayout->addLayout(select_layout, 0);
 
   QWidget* toggles = new QWidget();
@@ -1055,6 +1065,8 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
 
   homeScreen->setLayout(carrotLayout);
   main_layout->addWidget(homeScreen);
+  buildTuningPage();
+  main_layout->addWidget(tuningWidget);
   main_layout->setCurrentWidget(homeScreen);
 
   togglesCarrot(0);
@@ -1068,14 +1080,18 @@ void CarrotPanel::togglesCarrot(int widgetIndex) {
   latLongToggles->setVisible(widgetIndex == 4);
   dispToggles->setVisible(widgetIndex == 5);
   pathToggles->setVisible(widgetIndex == 6);
+  tuningWidget->setVisible(widgetIndex == 7);
+  if (widgetIndex == 7 && tuningCarLbl) {
+    tuningCarLbl->setText(m_tuningCar.isEmpty() ? "未选择" : m_tuningCar);
+  }
 }
 
 void CarrotPanel::updateButtonStyles() {
   QString styleSheet = R"(
-      #start_btn, #cruise_btn, #nav_btn, #speed_btn, #latLong_btn ,#disp_btn, #path_btn {
+      #start_btn, #cruise_btn, #nav_btn, #speed_btn, #latLong_btn ,#disp_btn, #path_btn, #tuning_btn {
         height: 120px; border-radius: 15px; background-color: #393939;
       }
-      #start_btn:pressed, #cruise_btn:pressed, #nav_btn:pressed, #speed_btn:pressed, #latLong_btn:pressed, #disp_btn:pressed, #path_btn:pressed {
+      #start_btn:pressed, #cruise_btn:pressed, #nav_btn:pressed, #speed_btn:pressed, #latLong_btn:pressed, #disp_btn:pressed, #path_btn:pressed, #tuning_btn:pressed {
         background-color: #4a4a4a;
       }
   )";
@@ -1102,9 +1118,196 @@ void CarrotPanel::updateButtonStyles() {
   case 6:
     styleSheet += "#path_btn { background-color: #33ab4c; }";
     break;
+  case 7:
+    styleSheet += "#tuning_btn { background-color: #33ab4c; }";
+    break;
   }
 
   setStyleSheet(styleSheet);
+}
+
+// ────────── 车型标定页 ──────────
+void CarrotPanel::buildTuningPage() {
+  tuningWidget = new QWidget(this);
+  QVBoxLayout* lay = new QVBoxLayout(tuningWidget);
+  lay->setSpacing(20);
+  lay->setContentsMargins(40, 20, 40, 30);
+
+  QLabel* title = new QLabel("车型标定(丰田/雷克萨斯 SP 联动)", tuningWidget);
+  title->setAlignment(Qt::AlignCenter);
+  title->setStyleSheet("font-size: 36px; font-weight: 600; color: #FFFFFF; padding: 20px;");
+  lay->addWidget(title);
+
+  QLabel* hint = new QLabel("从 268 个车型预设中选择, 一键写入 SP/精确/默认 标定参数", tuningWidget);
+  hint->setAlignment(Qt::AlignCenter);
+  hint->setStyleSheet("font-size: 24px; color: #8a8a8a;");
+  lay->addWidget(hint);
+
+  // 当前车型
+  tuningCarLbl = new QLabel("未选择", tuningWidget);
+  tuningCarLbl->setAlignment(Qt::AlignCenter);
+  tuningCarLbl->setStyleSheet("font-size: 40px; font-weight: 600; color: #e0e879; padding: 16px;");
+  lay->addWidget(tuningCarLbl);
+
+  // 选择车型
+  QPushButton* pickBtn = new QPushButton("选择车型", tuningWidget);
+  pickBtn->setMinimumHeight(90);
+  pickBtn->setStyleSheet("QPushButton { background-color: #2C2CE2; color: #FFFFFF; font-size: 32px; border-radius: 14px; }");
+  pickBtn->setCursor(Qt::PointingHandCursor);
+  connect(pickBtn, &QPushButton::clicked, this, &CarrotPanel::pickTuningCar);
+  lay->addWidget(pickBtn);
+
+  // 模式选择(按钮组)
+  QHBoxLayout* modeLay = new QHBoxLayout();
+  modeLay->setSpacing(15);
+  QString modeStyle0 = "QPushButton { background-color: #33ab4c; color: #FFFFFF; font-size: 28px; border-radius: 14px; }";
+  QString modeStyle1 = "QPushButton { background-color: #393939; color: #E4E4E4; font-size: 28px; border-radius: 14px; }";
+  auto mkModeBtn = [&](const QString& text, int mode) {
+    QPushButton* b = new QPushButton(text, tuningWidget);
+    b->setMinimumHeight(80);
+    b->setCursor(Qt::PointingHandCursor);
+    b->setStyleSheet(mode == 0 ? modeStyle0 : modeStyle1);
+    connect(b, &QPushButton::clicked, this, [this, mode, modeStyle0, modeStyle1]() {
+      m_tuningMode = mode;
+      // 刷新三个模式按钮高亮
+      for (QPushButton* mb : tuningModeBtns) {
+        mb->setStyleSheet(mb->property("mode").toInt() == m_tuningMode ? modeStyle0 : modeStyle1);
+      }
+    });
+    b->setProperty("mode", mode);
+    tuningModeBtns.append(b);
+    modeLay->addWidget(b);
+  };
+  mkModeBtn("SP 模式\n(自学习+NNFF)", 0);
+  mkModeBtn("精确模式\n(自定义微调)", 1);
+  mkModeBtn("恢复默认\n(出厂值)", 2);
+  lay->addLayout(modeLay);
+
+  QString modeDescStyle = "font-size: 22px; color: #8a8a8a; padding: 4px;";
+  QLabel* m0 = new QLabel("SP = 车型标定+自学习+NNFF, 免调; 精确 = 锁数值可手动微调; 默认 = fishop 出厂通用值", tuningWidget);
+  m0->setWordWrap(true);
+  m0->setStyleSheet(modeDescStyle);
+  lay->addWidget(m0);
+
+  // 应用
+  QPushButton* applyBtn = new QPushButton("应用标定", tuningWidget);
+  applyBtn->setMinimumHeight(90);
+  applyBtn->setStyleSheet("QPushButton { background-color: #E08020; color: #FFFFFF; font-size: 34px; font-weight: 600; border-radius: 14px; }");
+  applyBtn->setCursor(Qt::PointingHandCursor);
+  connect(applyBtn, &QPushButton::clicked, this, &CarrotPanel::applyTuning);
+  lay->addWidget(applyBtn);
+
+  // 返回
+  QPushButton* backBtn = new QPushButton("返回", tuningWidget);
+  backBtn->setMinimumHeight(70);
+  backBtn->setStyleSheet("QPushButton { background-color: #292929; color: #8a8a8a; font-size: 28px; border-radius: 14px; }");
+  backBtn->setCursor(Qt::PointingHandCursor);
+  connect(backBtn, &QPushButton::clicked, this, [this]() {
+    this->currentCarrotIndex = 4;
+    this->togglesCarrot(4);
+    updateButtonStyles();
+  });
+  lay->addWidget(backBtn);
+
+  lay->addStretch(1);
+}
+
+void CarrotPanel::pickTuningCar() {
+  // 从 toyota_presets.json 读车型列表(在 ui 二进制同目录)
+  QStringList names;
+  const QString path = QCoreApplication::applicationDirPath() + "/toyota_presets.json";
+  QFile f(path);
+  if (f.open(QIODevice::ReadOnly)) {
+    std::string err;
+    auto json = json11::Json::parse(f.readAll().toStdString(), err);
+    if (err.empty() && json["cars"].is_object()) {
+      const auto& cars = json["cars"].object_items();
+      for (const auto& kv : cars) {
+        names << QString::fromStdString(kv.first);
+      }
+    }
+  }
+  if (names.isEmpty()) {
+    ConfirmationDialog::alert("未找到 toyota_presets.json(应有 " + path + ")", this);
+    return;
+  }
+  names.sort();
+  QString cur = m_tuningCar.isEmpty() ? QString::fromStdString(Params().get("CarSelected3")) : m_tuningCar;
+  QString picked = MultiOptionDialog::getSelection("选择车型预设", names, cur, this);
+  if (!picked.isEmpty()) {
+    m_tuningCar = picked;
+    tuningCarLbl->setText(picked);
+  }
+}
+
+void CarrotPanel::applyTuning() {
+  if (m_tuningCar.isEmpty()) {
+    ConfirmationDialog::alert("请先选择车型", this);
+    return;
+  }
+  const QString path = QCoreApplication::applicationDirPath() + "/toyota_presets.json";
+  QFile f(path);
+  if (!f.open(QIODevice::ReadOnly)) {
+    ConfirmationDialog::alert("未找到 toyota_presets.json", this);
+    return;
+  }
+  std::string err;
+  auto json = json11::Json::parse(f.readAll().toStdString(), err);
+  if (!err.empty() || !json["cars"].is_object()) {
+    ConfirmationDialog::alert("标定文件解析失败", this);
+    return;
+  }
+  const auto& cars = json["cars"].object_items();
+  auto it = cars.find(m_tuningCar.toStdString());
+  if (it == cars.end()) {
+    ConfirmationDialog::alert("车型不在预设中: " + m_tuningCar, this);
+    return;
+  }
+  const auto& cp = it->second["cp"];
+
+  Params params;
+  if (m_tuningMode == 2) {
+    // 恢复默认: 出厂通用值
+    params.putInt("LateralTorqueCustom", 1);
+    params.putInt("LateralTorqueAccelFactor", 3000);
+    params.putInt("LateralTorqueFriction", 100);
+    params.putInt("NNFF", 0);
+  } else {
+    // SP(0): 自学习; 精确(1): 锁自定义, 都写车型数值 + NNFF
+    params.putInt("LateralTorqueCustom", m_tuningMode == 0 ? 0 : 1);
+    if (!cp["LateralTorqueAccelFactor"].is_null()) {
+      params.putInt("LateralTorqueAccelFactor", cp["LateralTorqueAccelFactor"].int_value());
+    }
+    if (!cp["LateralTorqueFriction"].is_null()) {
+      params.putInt("LateralTorqueFriction", cp["LateralTorqueFriction"].int_value());
+    }
+    if (!cp["LateralTorqueKpV"].is_null()) {
+      params.putInt("LateralTorqueKpV", cp["LateralTorqueKpV"].int_value());
+    }
+    if (!cp["LateralTorqueKiV"].is_null()) {
+      params.putInt("LateralTorqueKiV", cp["LateralTorqueKiV"].int_value());
+    }
+    if (!cp["LateralTorqueKf"].is_null()) {
+      params.putInt("LateralTorqueKf", cp["LateralTorqueKf"].int_value());
+    }
+    if (!cp["LateralTorqueKd"].is_null()) {
+      params.putInt("LateralTorqueKd", cp["LateralTorqueKd"].int_value());
+    }
+    if (!cp["CustomSteerMax"].is_null()) {
+      params.putInt("CustomSteerMax", cp["CustomSteerMax"].int_value());
+    }
+    if (!cp["CustomSteerDeltaUp"].is_null()) {
+      params.putInt("CustomSteerDeltaUp", cp["CustomSteerDeltaUp"].int_value());
+    }
+    if (!cp["CustomSteerDeltaDown"].is_null()) {
+      params.putInt("CustomSteerDeltaDown", cp["CustomSteerDeltaDown"].int_value());
+    }
+    params.putInt("NNFF", it->second["nnffModel"].bool_value() ? 1 : 0);
+    params.putInt("NNFFLite", 0);
+  }
+  ConfirmationDialog::alert("已应用标定: " + m_tuningCar + "\n模式: " +
+                            (m_tuningMode == 0 ? "SP(自学习)" : m_tuningMode == 1 ? "精确(自定义)" : "恢复默认") +
+                            "\n重启后生效", this);
 }
 
 

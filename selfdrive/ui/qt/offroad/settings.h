@@ -124,6 +124,16 @@ private:
   ListWidget* speedToggles;
   ListWidget* navToggles;
 
+  // ── 车型标定页 ──
+  QWidget* tuningWidget = nullptr;
+  QLabel* tuningCarLbl = nullptr;
+  QList<QPushButton*> tuningModeBtns;  // 三个模式按钮(SP/精确/默认)
+  QString m_tuningCar;      // 选中的车型(如 LEXUS_ES_TSS2)
+  int m_tuningMode = 0;     // 0=SP自学习 1=精确 2=恢复默认
+  void buildTuningPage();
+  void pickTuningCar();
+  void applyTuning();
+
   void togglesCarrot(int widgetIndex);
   void updateButtonStyles();
 

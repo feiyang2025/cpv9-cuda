@@ -135,6 +135,10 @@
         <source>选择您的车辆</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>标定</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConfirmationDialog</name>
