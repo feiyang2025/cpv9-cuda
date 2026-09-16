@@ -164,3 +164,25 @@ private:
   int m_max;
   int m_unit;
 };
+
+// 字符串枚举选择控件: 底层参数是字符串(如 Model="Classic"/"BigCombo"),
+// 选项列表由构造传入(可动态扫描), 整行点击弹大按钮选择框。
+class CStringEnumControl : public AbstractControl {
+  Q_OBJECT
+
+public:
+  CStringEnumControl(const QString& params, const QString& title, const QString& desc,
+                     const QStringList& options, const QStringList& labels = {},
+                     QWidget* parent = nullptr);
+
+private:
+  void showEvent(QShowEvent* event) override;
+  void refresh();
+  void showPopup();
+  void mouseReleaseEvent(QMouseEvent* event) override;
+
+  QStringList m_options;  // 实际写入的字符串值
+  QStringList m_labels;   // 显示名(空 = 用值本身)
+  QString m_params;
+  ElidedLabel label;
+};

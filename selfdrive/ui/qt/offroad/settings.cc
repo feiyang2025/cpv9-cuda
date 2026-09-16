@@ -7,6 +7,7 @@
 
 #include <QDebug>
 #include <QDialog>
+#include <QDir>
 #include <QMouseEvent>
 #include <QProcess>
 #include <QScreen>
@@ -631,6 +632,26 @@ static QLabel* makeSectionHeader(const QString& text, QWidget* parent = nullptr)
   return hdr;
 }
 
+// 扫描 selfdrive/modeld/models: 顶层有 pkl 算 "Classic", 子目录名即模型名。
+static QStringList scanModelDirs() {
+  QStringList dirs;
+  const QString ui_dir = QCoreApplication::applicationDirPath();  // .../selfdrive/ui
+  QDir models_dir(ui_dir + "/../modeld/models");
+  if (models_dir.exists("driving_vision_tinygrad.pkl")) {
+    dirs << "Classic";
+  }
+  const QStringList subdirs = models_dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+  for (const QString& d : subdirs) {
+    if (d == "__pycache__") continue;
+    if (QDir(models_dir.filePath(d)).exists("driving_vision_tinygrad.pkl") ||
+        QDir(models_dir.filePath(d)).exists("driving_vision_fp16.plan") ||
+        QDir(models_dir.filePath(d)).exists("driving_supercombo_fp16.plan")) {
+      dirs << d;
+    }
+  }
+  return dirs;
+}
+
 CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   main_layout = new QStackedLayout(this);
   homeScreen = new QWidget(this);
@@ -913,6 +934,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   startToggles->addItem(makeSectionHeader("车辆与模型"));
   startToggles->addItem(selectCarBtn);
   startToggles->addItem(new CValueControl("modelid", "模型选择", "-1:默认模型,0:TR16,1:DTR,2:Firehose,3:GWM,4:PP,5:DS,6:DSv2,7:WMI,8:CD210,重启后生效!", -1, 8, 1, {"默认模型", "TR16", "DTR", "Firehose", "GWM", "PP", "DS", "DSv2", "WMI", "CD210"}));
+  startToggles->addItem(new CStringEnumControl("Model", "推理模型(GPU)", "实际CUDA/TRT推理用的模型(目录名),重启后生效;当前的modelid仅影响tinygrad兜底路径", scanModelDirs()));
   startToggles->addItem(makeSectionHeader("自动巡航"));
   startToggles->addItem(new CValueControl("HyundaiCameraSCC", "现代: 摄像头SCC(0)", "1:连接SCC的CAN线到摄像头, 2:同步定速状态, 3:原厂长控，不是用摄像头实现SCC的均设置为0", -1, 100, 1));
   startToggles->addItem(new CValueControl("CanfdHDA2", "CANFD: HDA2 模式", "1:HDA2, 2:HDA2+盲点监测, 一般非CanFD车型设置为0", 0, 2, 1, {"关", "HDA2", "HDA2+盲点"}));
@@ -1236,6 +1258,105 @@ void CValueControl::showPopup() {
 void CValueControl::mouseReleaseEvent(QMouseEvent* event) {
   // 枚举模式: 整行任意位置点击(除按钮区域, 按钮会自己消费事件)都弹出选择框
   if (!m_map.isEmpty() && rect().contains(event->pos())) {
+    showPopup();
+    return;
+  }
+  QFrame::mouseReleaseEvent(event);
+}
+
+// ────────────────── CStringEnumControl ──────────────────
+CStringEnumControl::CStringEnumControl(const QString& params, const QString& title, const QString& desc,
+                                       const QStringList& options, const QStringList& labels,
+                                       QWidget* parent)
+  : AbstractControl(title, desc, "", parent), m_options(options), m_labels(labels), m_params(params) {
+
+  label.setAlignment(Qt::AlignVCenter | Qt::AlignRight);
+  label.setStyleSheet("color: #e0e879");
+  label.setCursor(Qt::PointingHandCursor);
+  hlayout->addWidget(&label);
+
+  connect(&label, &ElidedLabel::clicked, this, &CStringEnumControl::showPopup);
+  refresh();
+}
+
+void CStringEnumControl::showEvent(QShowEvent* event) {
+  AbstractControl::showEvent(event);
+  refresh();
+}
+
+void CStringEnumControl::refresh() {
+  const QString val = QString::fromStdString(Params().get(m_params.toStdString()));
+  int idx = m_options.indexOf(val);
+  QString text;
+  if (idx >= 0) {
+    text = (idx < m_labels.size() && !m_labels.at(idx).isEmpty()) ? m_labels.at(idx) : m_options.at(idx);
+  } else if (val.isEmpty() && !m_options.isEmpty()) {
+    // 空值 → 第一个选项(默认)
+    text = (m_labels.isEmpty() || m_labels.first().isEmpty()) ? m_options.first() : m_labels.first();
+  } else {
+    text = val;  // 未知值兜底显示原始字符串
+  }
+  label.setText(text + " ▾");
+}
+
+void CStringEnumControl::showPopup() {
+  QDialog dlg(this);
+  dlg.setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+  dlg.setStyleSheet("QDialog { background-color: #1f1f1f; }");
+  dlg.setModal(true);
+
+  QVBoxLayout* lay = new QVBoxLayout(&dlg);
+  lay->setSpacing(10);
+  lay->setContentsMargins(50, 50, 50, 50);
+
+  QLabel* dlg_title = new QLabel(title_label->text(), &dlg);
+  dlg_title->setAlignment(Qt::AlignCenter);
+  dlg_title->setStyleSheet("font-size: 44px; font-weight: 600; color: #FFFFFF; padding: 24px;");
+  lay->addWidget(dlg_title);
+
+  const QString cur = QString::fromStdString(Params().get(m_params.toStdString()));
+
+  for (int i = 0; i < m_options.size(); ++i) {
+    const QString disp = (i < m_labels.size() && !m_labels.at(i).isEmpty()) ? m_labels.at(i) : m_options.at(i);
+    QPushButton* b = new QPushButton(disp, &dlg);
+    b->setMinimumHeight(90);
+    b->setCursor(Qt::PointingHandCursor);
+    if (m_options.at(i) == cur) {
+      b->setStyleSheet("QPushButton { background-color: #33ab4c; color: #FFFFFF; font-size: 36px; border-radius: 14px; }");
+    } else {
+      b->setStyleSheet("QPushButton { background-color: #393939; color: #E4E4E4; font-size: 36px; border-radius: 14px; }");
+    }
+    connect(b, &QPushButton::clicked, this, [this, i, &dlg]() {
+      Params().put(m_params.toStdString(), m_options.at(i).toStdString());
+      refresh();
+      dlg.accept();
+    });
+    lay->addWidget(b);
+  }
+
+  const QString desc = getDescription();
+  if (!desc.isEmpty()) {
+    QLabel* dlg_desc = new QLabel(desc, &dlg);
+    dlg_desc->setWordWrap(true);
+    dlg_desc->setAlignment(Qt::AlignCenter);
+    dlg_desc->setStyleSheet("font-size: 26px; color: #8a8a8a; padding: 16px;");
+    lay->addWidget(dlg_desc);
+  }
+
+  QPushButton* cancel = new QPushButton(tr("取消"), &dlg);
+  cancel->setMinimumHeight(70);
+  cancel->setCursor(Qt::PointingHandCursor);
+  cancel->setStyleSheet("QPushButton { background-color: #292929; color: #8a8a8a; font-size: 30px; border-radius: 14px; }");
+  connect(cancel, &QPushButton::clicked, &dlg, &QDialog::reject);
+  lay->addWidget(cancel);
+
+  lay->addStretch(1);
+  dlg.showFullScreen();
+  dlg.exec();
+}
+
+void CStringEnumControl::mouseReleaseEvent(QMouseEvent* event) {
+  if (rect().contains(event->pos())) {
     showPopup();
     return;
   }
