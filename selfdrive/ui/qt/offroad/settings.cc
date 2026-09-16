@@ -795,7 +795,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   latLongToggles->addItem(new CValueControl("DecelLimitAEgoMax", "减速: 限制减速度的最大值(-110)x0.01", "DecelLimitVEgoMax,单位0.01m/s^2,参数为负值", -350, 0, 1));
   latLongToggles->addItem(new CValueControl("DecelLimitVEgoMin", "减速: 限制减速度的最小车速(10)x0.1", "DecelLimitVEgoMin,单位0.1m/s", 0, 500, 1));
   latLongToggles->addItem(new CValueControl("DecelLimitAEgoMin", "减速: 限制减速度的最小值(-30)x0.01", "DecelLimitAEgoMin,单位0.01m/s^2,参数为负值", -350, 0, 1));
-  latLongToggles->addItem(new CValueControl("SmoothStopMode", "纵向: 平滑停车模式(1)", "平滑停车模式，0-不开启，1-模式1，2-模式2", 0, 5, 1));
+  latLongToggles->addItem(new CValueControl("SmoothStopMode", "纵向: 平滑停车模式(1)", "平滑停车模式:0-关闭,1-模式1(停车限减速),2-模式2(限减速+输出平滑),3以上等同0", 0, 5, 1, {"关", "模式1", "模式2"}));
   latLongToggles->addItem(new CValueControl("StartAccel", "纵向:起步加速度x0.01(50)", "StartAccel,单位0.01m/s^2,0表示使用各车型的默认值", 0, 200, 5));
   latLongToggles->addItem(new CValueControl("JLeadFactor3", "纵向: 加加速度前车因子(0)", "x0.01", 0, 100, 5));
   latLongToggles->addItem(new CValueControl("GasSmoothTime", "纵向: 释放油门踏板后平滑加速度的时间(50)x0.1s", "在用户释放油门踏板后，对最大的加速度限制进行平滑", 0, 100, 5));
