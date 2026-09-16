@@ -5,13 +5,20 @@ from openpilot.sunnypilot.modeld_v2.gpu_backend.profile import ModelProfile, Tem
 
 MODELS_ROOT = Path(__file__).parents[4] / "selfdrive" / "modeld" / "models"
 
+# ── merged 模型(单引擎,如 BigCombo)独有的输出头,切分时划给 policy 侧 ──
+_MERGED_POLICY_KEYS = ('plan', 'lead', 'lead_prob', 'desire_state', 'action', 'hidden_state', 'pad')
+
+
+def _load_pkl(path: Path) -> dict:
+  with open(path, "rb") as f:
+    return pickle.load(f)
+
 
 def _load_slices(metadata_path: Path) -> dict[str, slice] | None:
   if not metadata_path.exists():
     return None
   try:
-    with open(metadata_path, "rb") as f:
-      metadata = pickle.load(f)
+    metadata = _load_pkl(metadata_path)
     slices = metadata.get("output_slices")
     if isinstance(slices, dict):
       return slices
@@ -20,161 +27,121 @@ def _load_slices(metadata_path: Path) -> dict[str, slice] | None:
   return None
 
 
-def _temporal() -> TemporalMeta:
+def _probe_engine(engine_dir: Path, candidates: list[str]) -> str | None:
+  for name in candidates:
+    if (engine_dir / name).is_file():
+      return name
+  return None
+
+
+def _temporal_from_shapes(policy_input_shapes: dict, merged_input_shapes: dict | None = None) -> TemporalMeta:
+  """从 metadata input_shapes 推导时序窗口,避免硬编码 25/512 等常量。"""
+  shapes = merged_input_shapes or policy_input_shapes
+  feats = shapes.get("features_buffer", (1, 25, 512))
+  desire = shapes.get("desire_pulse") or shapes.get("desire", (1, 25, 8))
   return TemporalMeta(
-    features_len=512,
-    features_windows=25,
-    desire_len=8,
-    desire_windows=25,
+    features_len=feats[-1] if len(feats) >= 2 else 512,
+    features_windows=feats[-2] if len(feats) >= 2 else 25,
+    desire_len=desire[-1] if len(desire) >= 1 else 8,
+    desire_windows=desire[-2] if len(desire) >= 2 else 25,
     features_includes_current=False,
     desire_includes_current=True,
   )
 
 
-def _filet_ofish() -> ModelProfile:
-  engine_dir = MODELS_ROOT / "FiletOFish"
-  vision_slices = _load_slices(engine_dir / "driving_vision_metadata.pkl")
-  policy_slices = _load_slices(engine_dir / "driving_policy_metadata.pkl")
-  return ModelProfile(
-    name="FiletOFish",
-    mode="split",
-    engine_dir=str(engine_dir),
-    vision_engine="driving_vision_fp16.plan",
-    policy_engine="driving_policy_fp16.plan",
-    vision_input_names=['img', 'big_img'],
-    input_shapes={
-      'img': (1, 12, 128, 256),
-      'big_img': (1, 12, 128, 256),
-      'desire': (1, 25, 8),
-      'traffic_convention': (1, 2),
-      'features_buffer': (1, 24, 512),
-    },
-    vision_slices=vision_slices or {},
-    policy_slices=policy_slices or {},
-    temporal=_temporal(),
-  )
+def _scan_dir(engine_dir: Path, name: str) -> ModelProfile | None:
+  """扫描一个模型目录(或顶层),从 metadata 自动推导 profile。
 
-
-def _big_combo() -> ModelProfile:
-  engine_dir = MODELS_ROOT / "BigCombo"
-  merged_slices = _load_slices(engine_dir / "driving_supercombo_metadata.pkl")
-  if merged_slices is None:
-    merged_slices = {
-      'lane_lines': slice(0, 528),
-      'lane_lines_prob': slice(528, 536),
-      'road_edges': slice(536, 800),
-      'meta': slice(800, 855),
-      'desire_pred': slice(855, 887),
-      'pose': slice(887, 899),
-      'wide_from_device_euler': slice(899, 905),
-      'road_transform': slice(905, 917),
-      'plan': slice(917, 1907),
-      'lead': slice(1907, 2051),
-      'lead_prob': slice(2051, 2054),
-      'desire_state': slice(2054, 2062),
-      'action': slice(2062, 2066),
-      'hidden_state': slice(2066, 2578),
-      'pad': slice(2578, 2580),
-    }
-  vision_slices = {k: v for k, v in merged_slices.items() if k not in (
-    'plan', 'lead', 'lead_prob', 'desire_state', 'action', 'hidden_state', 'pad',
-  )}
-  policy_slices = {k: v for k, v in merged_slices.items() if k not in vision_slices}
-  return ModelProfile(
-    name="BigCombo",
-    mode="merged",
-    engine_dir=str(engine_dir),
-    merged_engine="driving_supercombo_fp16.plan",
-    vision_input_names=['img', 'big_img'],
-    input_shapes={
-      'img': (1, 12, 128, 256),
-      'big_img': (1, 12, 128, 256),
-      'desire_pulse': (1, 25, 8),
-      'traffic_convention': (1, 2),
-      'action_t': (1, 2),
-      'features_buffer': (1, 24, 512),
-    },
-    vision_slices=vision_slices,
-    policy_slices=policy_slices,
-    temporal=_temporal(),
-  )
-
-
-def _classic() -> ModelProfile:
-  """Classic openpilot split model (driving_vision.plan + driving_policy.plan).
-
-  Used by Carrot / dp / pre-FiletOFish forks that keep the standard
-  `models/` layout with `driving_vision_metadata.pkl` /
-  `driving_policy_metadata.pkl`.  Input/output shapes are read from the
-  metadata pkls so slice math always matches the fork's own parser.
+  支持三种形态:
+  - merged (supercombo 单引擎): <dir>/driving_supercombo_metadata.pkl + <dir>/driving_supercombo*.plan
+  - split  (vision+policy 双引擎): <dir>/driving_vision_metadata.pkl + driving_policy_metadata.pkl
+           + driving_vision*.plan + driving_policy*.plan
+  - 只有 metadata(权重套件,如 0-tr16):注册但 is_ready=False,需先 build_plans.py
   """
-  engine_dir = MODELS_ROOT
-  vision_metadata_path = engine_dir / "driving_vision_metadata.pkl"
-  policy_metadata_path = engine_dir / "driving_policy_metadata.pkl"
-  vision_slices = _load_slices(vision_metadata_path)
-  policy_slices = _load_slices(policy_metadata_path)
+  vision_meta_path = engine_dir / "driving_vision_metadata.pkl"
+  policy_meta_path = engine_dir / "driving_policy_metadata.pkl"
+  super_meta_path = engine_dir / "driving_supercombo_metadata.pkl"
 
-  vision_engine = None
-  policy_engine = None
-  for name in ("driving_vision_fp16.plan", "driving_vision.plan"):
-    if (engine_dir / name).is_file():
-      vision_engine = name
-      break
-  for name in ("driving_policy_fp16.plan", "driving_policy.plan"):
-    if (engine_dir / name).is_file():
-      policy_engine = name
-      break
-
-  vision_input_shapes = {}
-  if vision_metadata_path.exists():
+  if super_meta_path.exists():
+    # ── merged ──
+    merged_slices = _load_slices(super_meta_path)
+    if merged_slices is None:
+      return None
     try:
-      with open(vision_metadata_path, "rb") as f:
-        vision_input_shapes = pickle.load(f).get("input_shapes", {})
+      merged_input_shapes = _load_pkl(super_meta_path).get("input_shapes", {})
     except Exception:
-      pass
-  policy_input_shapes = {}
-  if policy_metadata_path.exists():
-    try:
-      with open(policy_metadata_path, "rb") as f:
-        policy_input_shapes = pickle.load(f).get("input_shapes", {})
-    except Exception:
-      pass
+      merged_input_shapes = {}
+    vision_slices = {k: v for k, v in merged_slices.items() if k not in _MERGED_POLICY_KEYS}
+    policy_slices = {k: v for k, v in merged_slices.items() if k in _MERGED_POLICY_KEYS}
+    if not vision_slices or not policy_slices:
+      return None
+    merged_engine = _probe_engine(engine_dir, [
+      "driving_supercombo_fp16.plan", "driving_supercombo.plan",
+      "supercombo_fp16.plan", "supercombo.plan",
+    ])
+    vision_input_names = [k for k in merged_input_shapes if "img" in k] or list(merged_input_shapes)
+    return ModelProfile(
+      name=name, mode="merged", engine_dir=str(engine_dir),
+      merged_engine=merged_engine,
+      vision_input_names=vision_input_names,
+      input_shapes=merged_input_shapes,
+      vision_slices=vision_slices, policy_slices=policy_slices,
+      temporal=_temporal_from_shapes({}, merged_input_shapes),
+    )
 
-  # Policy temporal windows for the classic model are 25 (not 100).
-  feats_shape = policy_input_shapes.get("features_buffer", (1, 25, 512))
-  desire_shape = policy_input_shapes.get("desire_pulse", (1, 25, 8))
-  temporal = TemporalMeta(
-    features_len=feats_shape[-1] if len(feats_shape) >= 2 else 512,
-    features_windows=feats_shape[-2] if len(feats_shape) >= 2 else 25,
-    desire_len=desire_shape[-1] if len(desire_shape) >= 1 else 8,
-    desire_windows=desire_shape[-2] if len(desire_shape) >= 2 else 25,
-    features_includes_current=False,
-    desire_includes_current=True,
-  )
+  if not (vision_meta_path.exists() and policy_meta_path.exists()):
+    return None
 
+  # ── split ──
+  vision_slices = _load_slices(vision_meta_path)
+  policy_slices = _load_slices(policy_meta_path)
+  if not vision_slices or not policy_slices:
+    return None
+  try:
+    vision_meta = _load_pkl(vision_meta_path)
+    policy_meta = _load_pkl(policy_meta_path)
+  except Exception:
+    return None
+  vision_input_shapes = vision_meta.get("input_shapes", {})
+  policy_input_shapes = policy_meta.get("input_shapes", {})
+  vision_engine = _probe_engine(engine_dir, [
+    "driving_vision_fp16.plan", "driving_vision.plan",
+  ])
+  policy_engine = _probe_engine(engine_dir, [
+    "driving_policy_fp16.plan", "driving_policy.plan",
+  ])
+  vision_input_names = [k for k in vision_input_shapes if "img" in k] or list(vision_input_shapes)
   return ModelProfile(
-    name="Classic",
-    mode="split",
-    engine_dir=str(engine_dir),
-    vision_engine=vision_engine,
-    policy_engine=policy_engine,
-    vision_input_names=list(vision_input_shapes.keys()),
+    name=name, mode="split", engine_dir=str(engine_dir),
+    vision_engine=vision_engine, policy_engine=policy_engine,
+    vision_input_names=vision_input_names,
     input_shapes={**vision_input_shapes, **policy_input_shapes},
-    vision_slices=vision_slices or {},
-    policy_slices=policy_slices or {},
-    temporal=temporal,
+    vision_slices=vision_slices, policy_slices=policy_slices,
+    temporal=_temporal_from_shapes(policy_input_shapes),
   )
 
 
-REGISTRY: dict[str, ModelProfile] = {
-  "FiletOFish": _filet_ofish(),
-  "BigCombo": _big_combo(),
-  "Classic": _classic(),
-}
+def build_registry() -> dict[str, ModelProfile]:
+  reg: dict[str, ModelProfile] = {}
+  # 顶层 = "Classic"(原 registry 的 _classic)
+  top = _scan_dir(MODELS_ROOT, "Classic")
+  if top is not None:
+    reg["Classic"] = top
+  # 子目录:目录名即 Model 参数名
+  for child in sorted(MODELS_ROOT.iterdir()):
+    if not child.is_dir() or child.name.startswith(".") or child.name == "__pycache__":
+      continue
+    profile = _scan_dir(child, child.name)
+    if profile is not None:
+      reg[child.name] = profile
+  return reg
+
+
+REGISTRY: dict[str, ModelProfile] = build_registry()
 
 
 def get_profile(name: str | None) -> ModelProfile | None:
-  return REGISTRY.get(name or "FiletOFish")
+  return REGISTRY.get(name or "Classic")
 
 
 def resolve_profile(name: str | None = None) -> ModelProfile | None:
@@ -182,7 +149,7 @@ def resolve_profile(name: str | None = None) -> ModelProfile | None:
 
   Priority:
     1. explicit `name` (from Params Model / env) if its engines exist;
-    2. any ready profile in REGISTRY order;
+    2. any ready profile in REGISTRY order (Classic first, then 0-tr16..);
     3. None -> caller falls back to tinygrad.
   """
   if name:

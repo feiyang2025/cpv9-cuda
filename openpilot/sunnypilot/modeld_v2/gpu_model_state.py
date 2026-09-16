@@ -35,7 +35,7 @@ def _import_attr(mod_path, attr, fallback_mod_path=None, fallback_attr=None):
 class GpuModelState:
   """CUDA-first ModelState with tinygrad fallback."""
 
-  def __init__(self, cam_w: int, cam_h: int, chestnut: bool = False):
+  def __init__(self, cam_w: int, cam_h: int, chestnut: bool = False, model_name: str | None = None):
     # Lazy imports — only happen when GpuModelState is actually instantiated
     log = _import_attr("openpilot.cereal", "log", "cereal", "log")
     self._log = log
@@ -153,11 +153,13 @@ class GpuModelState:
     # --- Initialization ---
     self.chestnut = chestnut
     try:
-      model_name = os.getenv("MODEL_NAME") or Params().get("Model", encoding="utf-8")
+      if model_name is None:
+        model_name = os.getenv("MODEL_NAME") or Params().get("Model", encoding="utf-8")
     except Exception:
       # Some forks (e.g. Carrot) use the cython Params which lacks `encoding`
       # and has no "Model" key (the model is always the bundled classic one).
-      model_name = os.getenv("MODEL_NAME")
+      if model_name is None:
+        model_name = os.getenv("MODEL_NAME")
 
     if self._resolve_profile is None:
       raise RuntimeError("No profile resolver available")
@@ -330,3 +332,211 @@ class GpuModelState:
       desiredAcceleration=float(desired_accel),
       shouldStop=bool(stop),
     )
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# FailoverModelState — 大模型主跑 + 小模型热备,异常时小模型第一时间接管
+#
+# 官方思路:运行大模型时,小模型在内存热备;大模型输出异常(非有限值/
+# 冻结/推理异常)时第一时间切小模型接管;同一帧只发布一个源的输出
+# (modeld 是唯一 modelV2/drivingModelData 发布者,单源互斥天然成立)。
+#
+# 策略(与用户确认,2026-09-16):
+#   - 备模型平时每 FB_SELF_CHECK_EVERY 帧跑一次(维持时序状态,不发布)
+#   - 主异常 → 立即切备,备每帧推理发布;主模型降频复测
+#   - 主连续 RECOVER_FRAMES 帧健康 → 自动切回
+# ═══════════════════════════════════════════════════════════════════════
+
+FB_SELF_CHECK_EVERY = 15    # 备模型低频自检间隔(帧)
+FREEZE_FRAMES = 5           # 主连续 N 帧输出几乎不变 → 判冻结
+FREEZE_EPS = 1e-6           # 冻结判定阈值(比特级冻结远小于此)
+RECOVER_FRAMES = 50         # 主模型连续健康帧数 → 自动切回
+RECOVER_CHECK_EVERY = 5     # fallback 期间主模型复测间隔(帧),控制双跑开销
+
+_HEALTH_KEYS = ("plan", "lane_lines", "lane_lines_prob", "meta")
+
+
+def _flatten_core(outputs: dict) -> np.ndarray | None:
+  """把健康检测关心的核心输出拼成一个 flat 数组,用于非有限/冻结判定。"""
+  parts = []
+  for k in _HEALTH_KEYS:
+    v = outputs.get(k)
+    if v is None:
+      continue
+    a = np.asarray(v, dtype=np.float32)
+    if a.size:
+      parts.append(a.reshape(-1))
+  return np.concatenate(parts) if parts else None
+
+
+class FailoverModelState:
+  """GpuModelState 的 failover 包装:主模型 + 热备小模型,单源发布。"""
+
+  def __init__(self, cam_w: int, cam_h: int, chestnut: bool = False):
+    try:
+      Params = _import_attr("openpilot.common.params", "Params", "common.params", "Params")
+    except Exception:
+      Params = None
+    cloudlog = _import_attr("openpilot.common.swaglog", "cloudlog", "common.swaglog", "cloudlog")
+    self._cloudlog = cloudlog
+
+    # ── 主模型 ──
+    primary_name = None
+    if Params is not None:
+      try:
+        primary_name = os.getenv("MODEL_NAME") or Params().get("Model", encoding="utf-8")
+      except Exception:
+        primary_name = os.getenv("MODEL_NAME")
+    self.primary = GpuModelState(cam_w, cam_h, chestnut, model_name=primary_name)
+    cloudlog.warning(f"FailoverModelState primary: {self.primary.profile.name}")
+
+    # ── 备模型(热备)──
+    fallback_name = ""
+    if Params is not None:
+      try:
+        fallback_name = (Params().get("FallbackModel", encoding="utf-8") or "").strip()
+      except Exception:
+        fallback_name = ""
+    if not fallback_name:
+      # 默认组合:大模型主跑 → Classic 热备;Classic 自身主跑 → 无热备
+      if self.primary.profile.name not in ("Classic",):
+        fallback_name = "Classic"
+    self.fallback = None
+    if fallback_name and fallback_name != self.primary.profile.name:
+      try:
+        self.fallback = GpuModelState(cam_w, cam_h, chestnut, model_name=fallback_name)
+        cloudlog.warning(f"FailoverModelState fallback ready: {self.fallback.profile.name}")
+      except Exception:
+        cloudlog.exception(f"Fallback model '{fallback_name}' init failed; running primary-only")
+        self.fallback = None
+
+    # ── modeld 主循环按此构造 bufs/transforms(主备并集,各取所需)──
+    self.vision_input_names = list(self.primary.vision_input_names)
+    if self.fallback is not None:
+      for k in self.fallback.vision_input_names:
+        if k not in self.vision_input_names:
+          self.vision_input_names.append(k)
+
+    self._state = "primary"      # "primary" | "fallback"
+    self._tick = 0
+    self._healthy_streak = 0
+    self._freeze_streak = 0
+    self._last_primary_core: np.ndarray | None = None
+    self._fallback_fail_streak = 0
+
+  # ── 代理主模型接口(modeld.py 使用)──
+  @property
+  def profile(self):
+    return self.primary.profile
+
+  @property
+  def parser(self):
+    return self.primary.parser
+
+  @property
+  def mlsim(self) -> bool:
+    return self.primary.mlsim
+
+  @property
+  def desire_key(self):
+    return self.primary.desire_key
+
+  @property
+  def numpy_inputs(self):
+    return self.primary.numpy_inputs
+
+  # ── 健康检测:非有限 + 冻结 ──
+  def _primary_healthy(self, outputs: dict) -> bool:
+    core = _flatten_core(outputs)
+    if core is None or core.size == 0:
+      return False
+    if not np.all(np.isfinite(core)):
+      return False
+    if self._last_primary_core is not None and self._last_primary_core.shape == core.shape:
+      if np.max(np.abs(core - self._last_primary_core)) < FREEZE_EPS:
+        self._freeze_streak += 1
+        if self._freeze_streak >= FREEZE_FRAMES:
+          self._cloudlog.error(f"[Failover] primary {self.primary.profile.name} output frozen "
+                               f"({self._freeze_streak} frames)")
+          return False
+      else:
+        self._freeze_streak = 0
+    self._last_primary_core = core
+    return True
+
+  # ── 备模型推理(不发布语义由调用方决定)──
+  def _fb_run(self, bufs, transforms, inputs, prepare_only: bool) -> dict | None:
+    if self.fallback is None:
+      return None
+    try:
+      return self.fallback.run(bufs, transforms, inputs, prepare_only)
+    except Exception:
+      self._fallback_fail_streak += 1
+      if self._fallback_fail_streak <= 2:
+        self._cloudlog.exception("[Failover] fallback model run failed")
+      return None
+
+  def _maybe_fb_selfcheck(self, bufs, transforms, inputs) -> None:
+    """主健康时,备模型低频自检,维持时序状态但不发布。"""
+    if self.fallback is None:
+      return
+    if self._tick % FB_SELF_CHECK_EVERY == 0:
+      try:
+        self.fallback.run(bufs, transforms, inputs, False)
+      except Exception:
+        self._cloudlog.exception("[Failover] fallback self-check failed")
+
+  # ── 主入口:单源发布 ──
+  def run(self, bufs, transforms, inputs, prepare_only: bool) -> dict | None:
+    self._tick += 1
+    fb_active = self._state == "fallback"
+
+    # 主模型本次是否推理:primary 状态每帧;fallback 状态降频复测(控制双跑开销)
+    run_primary = (not fb_active) or (self._tick % RECOVER_CHECK_EVERY == 0)
+    p_out = None
+    if run_primary:
+      try:
+        p_out = self.primary.run(bufs, transforms, inputs, prepare_only)
+      except Exception:
+        self._cloudlog.exception("[Failover] primary model run failed")
+        p_out = None
+
+    if prepare_only:
+      return None
+
+    if not fb_active:
+      if p_out is not None and self._primary_healthy(p_out):
+        self._healthy_streak = 0
+        self._maybe_fb_selfcheck(bufs, transforms, inputs)
+        return p_out
+      # 主模型异常 → 第一时间切备接管
+      fb_name = self.fallback.profile.name if self.fallback is not None else "none"
+      self._cloudlog.error(f"[Failover] primary {self.primary.profile.name} UNHEALTHY, "
+                           f"switching to fallback ({fb_name})")
+      self._state = "fallback"
+      self._healthy_streak = 0
+      self._fallback_fail_streak = 0
+      fb = self._fb_run(bufs, transforms, inputs, False)
+      if fb is not None:
+        return fb
+      # 备也不可用:宁可持续输出主结果,不断流(controls 需要连续输入)
+      self._cloudlog.error("[Failover] fallback not available either; continuing with primary output")
+      return p_out
+
+    # ── fallback 状态:备每帧发布,主降频复测 ──
+    fb = self._fb_run(bufs, transforms, inputs, False)
+    if run_primary:
+      if p_out is not None and self._primary_healthy(p_out):
+        self._healthy_streak += 1
+        if self._healthy_streak >= RECOVER_FRAMES:
+          self._cloudlog.warning(f"[Failover] primary {self.primary.profile.name} recovered "
+                                 f"({self._healthy_streak} frames), switching back")
+          self._state = "primary"
+          self._healthy_streak = 0
+          self._freeze_streak = 0
+          self._last_primary_core = None
+      else:
+        self._healthy_streak = 0
+    if fb is not None:
+      return fb
+    return p_out

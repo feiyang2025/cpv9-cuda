@@ -6,7 +6,9 @@
 #include <thread> //차선캘리
 
 #include <QDebug>
+#include <QDialog>
 #include <QProcess>
+#include <QScreen>
 
 #include "common/watchdog.h"
 #include "common/util.h"
@@ -716,7 +718,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
   cruiseToggles->addItem(new CValueControl("TFollowGap4", "跟车时间GAP4(180)x0.01s", "", 70, 300, 5));
   cruiseToggles->addItem(new CValueControl("DynamicTFollow", "动态跟车GAP控制", "", 0, 100, 5));
   cruiseToggles->addItem(new CValueControl("DynamicTFollowLC", "动态跟车GAP控制(变道)", "", 0, 100, 5));
-  cruiseToggles->addItem(new CValueControl("MyDrivingMode", "驾驶模式选择", "1:经济,2:安全,3:普通,4:激进", 1, 4, 1));
+  cruiseToggles->addItem(new CValueControl("MyDrivingMode", "驾驶模式选择", "1:经济,2:安全,3:普通,4:激进", 1, 4, 1, {"经济", "安全", "普通", "激进"}));
   cruiseToggles->addItem(new CValueControl("MyDrivingModeAuto", "驾驶模式自动", "0:关闭,1:开启(仅普通模式)", 0, 1, 1));
   cruiseToggles->addItem(new CValueControl("TrafficLightDetectMode", "红绿灯检测模式", "0:无,1:仅停止,2:停走模式", 0, 2, 1));
 
@@ -881,7 +883,7 @@ CarrotPanel::CarrotPanel(QWidget* parent) : QWidget(parent) {
 
 
   startToggles->addItem(selectCarBtn);
-  startToggles->addItem(new CValueControl("modelid", "模型选择(-1)", "-1:默认模型,0:TR16,1:DTR,2:Firehose,3:GWM,4:PP,5:DS,6:DSv2,7:WMI,8:CD210,重启后生效!", -1, 100, 1));
+  startToggles->addItem(new CValueControl("modelid", "模型选择", "-1:默认模型,0:TR16,1:DTR,2:Firehose,3:GWM,4:PP,5:DS,6:DSv2,7:WMI,8:CD210,重启后生效!", -1, 8, 1, {"默认模型", "TR16", "DTR", "Firehose", "GWM", "PP", "DS", "DSv2", "WMI", "CD210"}));
   startToggles->addItem(new CValueControl("HyundaiCameraSCC", "现代: 摄像头SCC(0)", "1:连接SCC的CAN线到摄像头, 2:同步定速状态, 3:原厂长控，不是用摄像头实现SCC的均设置为0", -1, 100, 1));
   startToggles->addItem(new CValueControl("CanfdHDA2", "CANFD: HDA2 模式", "1:HDA2, 2:HDA2+盲点监测, 一般非CanFD车型设置为0", 0, 2, 1));
   startToggles->addItem(new CValueControl("EnableRadarTracks", "启用雷达追踪(1)", "1:启用雷达追踪, -1,2:禁用 (始终使用HKG SCC雷达)，胜达设置为1, 改变值后需要重启车辆", -1, 3, 1));
@@ -1078,6 +1080,12 @@ CValueControl::CValueControl(const QString& params, const QString& title, const 
   connect(&btnminus, &QPushButton::released, this, &CValueControl::decreaseValue);
   connect(&btnplus, &QPushButton::released, this, &CValueControl::increaseValue);
 
+  if (!m_map.isEmpty()) {
+    // 枚举模式: 点击 label 弹出大按钮选择框(车机友好)
+    label.setCursor(Qt::PointingHandCursor);
+    connect(&label, &ElidedLabel::clicked, this, &CValueControl::showPopup);
+  }
+
   refresh();
 }
 
@@ -1089,10 +1097,10 @@ void CValueControl::showEvent(QShowEvent* event) {
 void CValueControl::refresh() {
   QString val = QString::fromStdString(Params().get(m_params.toStdString()));
   if (!m_map.isEmpty()) {
-    // 中文模式名显示; 值不在映射表时兜底显示原始值
+    // 中文模式名显示; map 下标从 m_min 起(支持 -1/1 起始的枚举); 越界兜底显示原始值
     int v = val.toInt();
-    if (v >= 0 && v < m_map.size()) {
-      label.setText(m_map.at(v));
+    if (v >= m_min && (v - m_min) < m_map.size()) {
+      label.setText(m_map.at(v - m_min));
       return;
     }
   }
@@ -1118,4 +1126,63 @@ void CValueControl::increaseValue() {
 
 void CValueControl::decreaseValue() {
   adjustValue(-m_unit);
+}
+
+void CValueControl::showPopup() {
+  if (m_map.isEmpty()) return;
+
+  QDialog dlg(this);
+  dlg.setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint);
+  dlg.setStyleSheet("QDialog { background-color: #1f1f1f; }");
+  dlg.setModal(true);
+
+  QVBoxLayout* lay = new QVBoxLayout(&dlg);
+  lay->setSpacing(10);
+  lay->setContentsMargins(50, 50, 50, 50);
+
+  QLabel* dlg_title = new QLabel(title_label->text(), &dlg);
+  dlg_title->setAlignment(Qt::AlignCenter);
+  dlg_title->setStyleSheet("font-size: 44px; font-weight: 600; color: #FFFFFF; padding: 24px;");
+  lay->addWidget(dlg_title);
+
+  int cur = QString::fromStdString(Params().get(m_params.toStdString())).toInt();
+
+  for (int i = 0; i < m_map.size(); ++i) {
+    int v = m_min + i;
+    QPushButton* b = new QPushButton(m_map.at(i), &dlg);
+    b->setMinimumHeight(90);
+    b->setCursor(Qt::PointingHandCursor);
+    if (v == cur) {
+      b->setStyleSheet("QPushButton { background-color: #33ab4c; color: #FFFFFF; font-size: 36px; border-radius: 14px; }");
+    } else {
+      b->setStyleSheet("QPushButton { background-color: #393939; color: #E4E4E4; font-size: 36px; border-radius: 14px; }");
+    }
+    connect(b, &QPushButton::clicked, this, [this, v, &dlg]() {
+      Params().putInt(m_params.toStdString(), v);
+      refresh();
+      dlg.accept();
+    });
+    lay->addWidget(b);
+  }
+
+  const QString desc = getDescription();
+  if (!desc.isEmpty()) {
+    QLabel* dlg_desc = new QLabel(desc, &dlg);
+    dlg_desc->setWordWrap(true);
+    dlg_desc->setAlignment(Qt::AlignCenter);
+    dlg_desc->setStyleSheet("font-size: 26px; color: #8a8a8a; padding: 16px;");
+    lay->addWidget(dlg_desc);
+  }
+
+  QPushButton* cancel = new QPushButton(tr("取消"), &dlg);
+  cancel->setMinimumHeight(70);
+  cancel->setCursor(Qt::PointingHandCursor);
+  cancel->setStyleSheet("QPushButton { background-color: #292929; color: #8a8a8a; font-size: 30px; border-radius: 14px; }");
+  connect(cancel, &QPushButton::clicked, &dlg, &QDialog::reject);
+  lay->addWidget(cancel);
+
+  lay->addStretch(1);
+
+  dlg.showFullScreen();
+  dlg.exec();
 }

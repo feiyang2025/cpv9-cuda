@@ -137,6 +137,8 @@ class CValueControl : public AbstractControl {
 public:
   // map: 可选的 数值->中文 标签表（如 {"0":"自学习","1":"自定义","2":"默认值"}）。
   // 传了 map 后 label 显示中文, 按钮行为变为"模式切换"(在 min..max 间循环)。
+  // map 下标对应 m_min 起始的值（如 modelid 从 -1 起, 下标0=-1）。
+  // map 非空时点击 label 弹出大按钮选择框（车机友好, 替代 +/- 循环）。
   CValueControl(const QString& params, const QString& title, const QString& desc,
                 int min, int max, int unit = 1, const QStringList& map = {});
 
@@ -148,12 +150,13 @@ private:
   void showEvent(QShowEvent* event) override;
   void refresh();
   void adjustValue(int delta);
+  void showPopup();
 
-  QStringList m_map;  // 空 = 普通数值显示; 非空 = 中文模式名显示 + 循环切换
+  QStringList m_map;  // 空 = 普通数值显示; 非空 = 中文模式名显示 + 循环切换 + 点击弹窗
 
   QPushButton btnplus;
   QPushButton btnminus;
-  QLabel label;
+  ElidedLabel label;
 
   QString m_params;
   int m_min;

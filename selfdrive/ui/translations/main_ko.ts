@@ -88,6 +88,13 @@
     </message>
 </context>
 <context>
+    <name>CValueControl</name>
+    <message>
+        <source>取消</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CarrotPanel</name>
     <message>
         <source>Start</source>
